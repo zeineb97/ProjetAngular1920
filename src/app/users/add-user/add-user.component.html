@@ -1,0 +1,17 @@
+<form #formulaire='ngForm'>
+
+    <label for="name">Nom</label>
+    <input id="name" type="text" class="form-control" ngModel name="name">
+    <label for="firstname">Prénom</label>
+    <input id="firstname" type="text" class="form-control" ngModel name="firstname">
+    <label for="email">Email</label>
+    <input id="email" type="text" class="form-control" email required ngModel #email="ngModel" name="email">
+    <label for="age">Age</label>
+    <input id="age" pattern="\d{1,2}" type="text" class="form-control" ngModel name="age">
+    <label for="job">Préoccupation</label>
+    <input id="job" type="text" class="form-control" ngModel name="job">
+    <label for="pwd">Password</label>
+    <input id="pwd" required type="password" class="form-control" ngModel #pwd="ngModel" minlength="4" name="password">
+
+    <button (click)="addPersonne(formulaire)" class="btn btn-primary">S'inscrire</button>
+</form>
