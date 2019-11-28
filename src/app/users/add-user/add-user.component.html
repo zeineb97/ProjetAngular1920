@@ -1,17 +1,48 @@
-<form #formulaire='ngForm'>
+<div class="signup">
+    <form #formulaire='ngForm'>
 
-    <label for="name">Nom</label>
-    <input id="name" type="text" class="form-control" ngModel name="name">
-    <label for="firstname">Prénom</label>
-    <input id="firstname" type="text" class="form-control" ngModel name="firstname">
-    <label for="email">Email</label>
-    <input id="email" type="text" class="form-control" email required ngModel #email="ngModel" name="email">
-    <label for="age">Age</label>
-    <input id="age" pattern="\d{1,2}" type="text" class="form-control" ngModel name="age">
-    <label for="job">Préoccupation</label>
-    <input id="job" type="text" class="form-control" ngModel name="job">
-    <label for="pwd">Password</label>
-    <input id="pwd" required type="password" class="form-control" ngModel #pwd="ngModel" minlength="4" name="password">
+        <label for="name">Nom</label>
+        <input id="name" type="text" class="form-control" ngModel name="name">
+        <label for="firstname">Prénom</label>
+        <input id="firstname" type="text" class="form-control" ngModel name="firstname">
+        <label for="email">Adresse Mail</label>
+        <input id="email" type="text" class="form-control" email required ngModel #email="ngModel" name="email">
+        <label for="tel">Téléphone</label>
+        <input id="tel" pattern="\d{22222222}" type="text" class="form-control" ngModel name="age">
+        <label for="pwd">Password</label>
+        <input id="pwd" required type="password" class="form-control" ngModel #pwd="ngModel" minlength="4"
+            name="password">
+        <label>Gouvernerat</label>
+        <select ngModel name="gouvernerat" class="form-control">
+            <option value="T">Tunis</option>
+            <option value="A">Ariana</option>
+            <option value="B">Ben Arous</option>
+        </select>
+        <label>Délégation</label>
+        <select ngModel name="delegation" class="form-control">
+            <option value="T">Tunis</option>
+            <option value="A">Ariana</option>
+            <option value="B">Ben Arous</option>
+        </select>
+        <label>Localité</label>
+        <select ngModel name="localite" class="form-control">
+            <option value="T">Tunis</option>
+            <option value="A">Ariana</option>
+            <option value="B">Ben Arous</option>
+        </select>
+        <label>Je cherche des services de type </label>
+        <select ngModel name="type_service" class="form-control">
+            <option value="T">Tunis</option>
+            <option value="A">Ariana</option>
+            <option value="B">Ben Arous</option>
+        </select>
+        <input type="checkbox" ng-model="condition">Je'accepte les conditions d'utilisation du site
+        <br>
+        <input type="checkbox" ng-model="condition_d">Je souhaite recevoir les nouveaux offres des artisants via
+        mail<br>
 
-    <button (click)="addPersonne(formulaire)" class="btn btn-primary">S'inscrire</button>
-</form>
+
+
+        <button (click)="addPersonne(formulaire)" class="btn btn-primary">S'inscrire</button>
+    </form>
+</div>

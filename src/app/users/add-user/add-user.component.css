@@ -1,0 +1,22 @@
+.signup{
+    border-color: #666666;
+    margin-left: 50em;
+    
+}
+input { 
+    width: 25em;
+    height: 40px;
+    color:#EDC551;
+    color:#2CB4CE ;
+  
+
+}
+
+
+select {
+    width: 25em;
+}
+label{
+    color: #2CB4CE;
+    font-style: inherit;
+}
