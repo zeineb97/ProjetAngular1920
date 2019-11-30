@@ -3,14 +3,15 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavBarComponent } from './layout/nav-bar/nav-bar.component';
-import { FooterComponent } from './layout/footer/footer.component';
+
+import { DefaultLayoutComponent } from './default-layout/default-layout.component';
+import { AddComponent } from './add/add.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavBarComponent,
-    FooterComponent
+    DefaultLayoutComponent,
+    AddComponent
   ],
   imports: [
     BrowserModule,
