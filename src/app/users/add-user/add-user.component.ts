@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FirebaseService } from '../../services/firebase.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-add-user',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddUserComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(
+    public firebaseService: FirebaseService
+  ) { }
 
   ngOnInit() {
+  }
+  addUser(formulaire: NgForm) {
+    this.firebaseService.createUser(formulaire);
+
   }
 
 }
