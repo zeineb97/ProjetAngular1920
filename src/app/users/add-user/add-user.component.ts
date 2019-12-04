@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FirebaseService } from '../../services/firebase.service';
+import { UserService } from '../../services/user.service';
 import { NgForm } from '@angular/forms';
-
+import { User } from '../../model/User';
 @Component({
   selector: 'app-add-user',
   templateUrl: './add-user.component.html',
@@ -9,15 +9,20 @@ import { NgForm } from '@angular/forms';
 })
 export class AddUserComponent implements OnInit {
 
+  //user: User = new User(0, '', '', '', 22222222, '', '', '', '', false, false);
+  //submitted = false;
 
   constructor(
-    public firebaseService: FirebaseService
+    private userService: UserService
   ) { }
 
   ngOnInit() {
   }
+
+
+
   addUser(formulaire: NgForm) {
-    this.firebaseService.createUser(formulaire);
+    this.userService.createUser(formulaire.value);
 
   }
 
