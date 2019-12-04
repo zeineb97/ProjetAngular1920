@@ -36,7 +36,7 @@ export class AddComponent implements OnInit {
     );
     this.monObservable.subscribe(
       (result) => {
-       
+
         this.currentImage = result;
       }
     );
