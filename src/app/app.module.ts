@@ -17,12 +17,9 @@ import { AddComponent } from './add/add.component';
 @NgModule({
   declarations: [
     AppComponent,
-<<<<<<< HEAD
     DefaultLayoutComponent,
-    AddComponent
-=======
+    AddComponent,
     AddUserComponent
->>>>>>> sprint1
   ],
   imports: [
     BrowserModule,
