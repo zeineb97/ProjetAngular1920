@@ -1,3 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "~font-awesome/css/font-awesome.css";
+@import "~ag-grid-community/dist/styles/ag-grid.css";
+@import "~ag-grid-community/dist/styles/ag-theme-balham.css";
+/*
+Codes : 
+#19647E
+#2CB4CE
+#EDC551
+#F2F2F2
+#666666
+
+*/
+/* to format valid/invalid inputs */
+.ng-valid[required], .ng-valid.required {
+border-left: 5px solid #2CB4CE; 
+}
+.ng-invalid:not(form) {
+border-left: 5px solid #EDC551; 
+}
+h1.page-header {
+  color: #19647E;
+  font-size: 2em;
+  margin-bottom: 10px;  
+}
