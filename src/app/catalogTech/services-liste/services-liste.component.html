@@ -3,7 +3,7 @@
 
   <div class="row">
          <div *ngFor="let o of offres">
-           <app-service-item [offre]="o"></app-service-item>
+           <app-service-item (selectedOffre)="selectOffre($event)" [offre]="o"></app-service-item>
          </div>
 
   </div>

@@ -8,6 +8,7 @@ import {Offre} from '../../model/Offre';
 })
 export class CatalogComponent implements OnInit {
   offres: Offre [] ;
+  selectedOffre: Offre;
   constructor() { }
 
   ngOnInit() {
@@ -19,5 +20,7 @@ export class CatalogComponent implements OnInit {
       new Offre(5, 'mécanicien', 'Service de plomberie', 'assets/Images/exp2.jpg', [], 25, 1)
     ];
   }
+  selectOffre(offre)  {
+    this.selectedOffre = offre; }
 
 }
