@@ -13,13 +13,21 @@ import { AddUserComponent } from './users/add-user/add-user.component';
 
 import { DefaultLayoutComponent } from './default-layout/default-layout.component';
 import { AddComponent } from './add/add.component';
+import { CatalogComponent } from './catalogTech/catalog/catalog.component';
+import { ServicesListeComponent } from './catalogTech/services-liste/services-liste.component';
+import { ServiceItemComponent } from './catalogTech/service-item/service-item.component';
+import { ServiceDetailsComponent } from './catalogTech/service-details/service-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DefaultLayoutComponent,
     AddComponent,
-    AddUserComponent
+    AddUserComponent,
+    CatalogComponent,
+    ServicesListeComponent,
+    ServiceItemComponent,
+    ServiceDetailsComponent
   ],
   imports: [
     BrowserModule,

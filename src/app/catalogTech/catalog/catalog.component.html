@@ -1,0 +1,41 @@
+<div class="container-fluid">
+  <br>
+  <div class="row">
+    <div class="col-3">  <input class="form-control" type="search" placeholder="Recherche" aria-label="Search"></div>
+    <div class="col"></div>
+
+    <div class="col-2 ">
+      <select  class="form-control">
+        <option selected disabled>Gouvernorat</option>
+        <option>A</option>
+        <option>A</option>
+        <option>A</option>
+      </select>
+    </div>
+    <div class="col-2 ">
+      <select  class="form-control">
+        <option selected disabled> Délégation</option>
+        <option>A</option>
+        <option>A</option>
+        <option>A</option>
+      </select>
+    </div>
+    <div class="col-2 ">
+      <select  class="form-control">
+        <option selected disabled> Localité</option>
+        <option>A</option>
+        <option>A</option>
+        <option>A</option>
+      </select>
+    </div>
+  </div>
+
+  <br>
+
+  <app-services-liste (selectedOffre)="selectOffre($event)" [offres]="offres"></app-services-liste>
+
+</div>
+
+<app-service-details [offre]="selectedOffre"></app-service-details>
+
+
