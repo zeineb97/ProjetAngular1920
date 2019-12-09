@@ -10,11 +10,14 @@ import {Offre} from '../../model/Offre';
 })
 export class ServiceDetailsComponent implements OnInit {
   @Input() offre: Offre;
+  title = 'modal';
 
   constructor() {}
 
   ngOnInit() {
+
   }
+
 
 
 
