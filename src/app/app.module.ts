@@ -23,19 +23,15 @@ import { ServiceDetailsComponent } from './catalogTech/service-details/service-d
 @NgModule({
   declarations: [
     AppComponent,
-<<<<<<< HEAD
     DefaultLayoutComponent,
     AddComponent,
-    AddUserComponent,
+    AddArtisanComponent,
+    DetailsArtisanComponent,
+    ListArtisanComponent,
     CatalogComponent,
     ServicesListeComponent,
     ServiceItemComponent,
     ServiceDetailsComponent
-=======
-    AddArtisanComponent,
-    DetailsArtisanComponent,
-    ListArtisanComponent
->>>>>>> sprint1
   ],
   imports: [
     BrowserModule,
