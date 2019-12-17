@@ -2,9 +2,10 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DefaultLayoutComponent } from './default-layout/default-layout.component';
 import { AddComponent } from './add/add.component';
-import { AddUserComponent } from './users/add-user/add-user.component';
+import { AddArtisanComponent } from './users/artisan/add-artisan/add-artisan.component';
+import { ListArtisanComponent } from './users/artisan/list-artisan/list-artisan.component';
 import { from } from 'rxjs';
-import {CatalogComponent} from './catalogTech/catalog/catalog.component';
+import { CatalogComponent } from './catalogTech/catalog/catalog.component';
 
 const routes: Routes = [
   {
@@ -19,8 +20,12 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'adduser',
-    component: AddUserComponent
+    path: 'addartisan',
+    component: AddArtisanComponent
+  },
+  {
+    path: 'listartisan',
+    component: ListArtisanComponent
   },
   {
     path: 'catalog',

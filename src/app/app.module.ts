@@ -9,7 +9,9 @@ import { AgGridModule } from 'ag-grid-angular';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { NgxLoadingModule } from 'ngx-loading';
-import { AddUserComponent } from './users/add-user/add-user.component';
+import { AddArtisanComponent } from './users/artisan/add-artisan/add-artisan.component';
+import { DetailsArtisanComponent } from './users/artisan/details-artisan/details-artisan.component';
+import { ListArtisanComponent } from './users/artisan/list-artisan/list-artisan.component';
 
 import { DefaultLayoutComponent } from './default-layout/default-layout.component';
 import { AddComponent } from './add/add.component';
@@ -23,7 +25,9 @@ import { ServiceDetailsComponent } from './catalogTech/service-details/service-d
     AppComponent,
     DefaultLayoutComponent,
     AddComponent,
-    AddUserComponent,
+    AddArtisanComponent,
+    DetailsArtisanComponent,
+    ListArtisanComponent,
     CatalogComponent,
     ServicesListeComponent,
     ServiceItemComponent,
