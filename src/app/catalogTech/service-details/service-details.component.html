@@ -13,7 +13,7 @@
           <h5 style="color: #19647E"> Description :</h5> {{offre.descripton }}
           <h5 style="color: #19647E"> Prix :</h5> {{offre.prix }}
           <h5 style="color: #19647E"> Les images du service: </h5>
-         
+
           <ul *ngFor="let image of offre.imagesList " class="nav navbar navbar-left d-flex d-inline-flex " >
             <li class="nav-item d-inline-flex  align-items-center mr-2" > <img src="{{image}}"  style="width: 150px ; height: 150px" > </li>
           </ul>
