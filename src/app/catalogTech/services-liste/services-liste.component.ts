@@ -7,6 +7,7 @@ import {Offre} from '../../model/Offre';
   styleUrls: ['./services-liste.component.css']
 })
 export class ServicesListeComponent implements OnInit {
+  searchVal = '' ;
   @Input() offres: Offre[];
   @Output() selectedOffre = new EventEmitter();
   constructor() { }

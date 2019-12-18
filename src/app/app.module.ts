@@ -19,6 +19,7 @@ import { CatalogComponent } from './catalogTech/catalog/catalog.component';
 import { ServicesListeComponent } from './catalogTech/services-liste/services-liste.component';
 import { ServiceItemComponent } from './catalogTech/service-item/service-item.component';
 import { ServiceDetailsComponent } from './catalogTech/service-details/service-details.component';
+import { TitleFilterPipe } from './catalogTech/filters/title-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ServiceDetailsComponent } from './catalogTech/service-details/service-d
     CatalogComponent,
     ServicesListeComponent,
     ServiceItemComponent,
-    ServiceDetailsComponent
+    ServiceDetailsComponent,
+    TitleFilterPipe
   ],
   imports: [
     BrowserModule,
