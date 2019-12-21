@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-default-layout',
   templateUrl: './default-layout.component.html',
@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DefaultLayoutComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
-
+  goToDemandeur() {
+    const link = ['/profildemandeur'];
+    this.router.navigate(link);
+  }
+  goToArtisan() {
+    const link = ['profilartisan'];
+    this.router.navigate(link);
+  }
 }

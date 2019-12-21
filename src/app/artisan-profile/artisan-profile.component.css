@@ -1,0 +1,33 @@
+.signup{
+    border-color: #666666;
+    margin-left: 50em;
+    
+}
+input { 
+    width: 25em;
+    height: 30px;
+    color:#EDC551;
+    color:#2CB4CE ;
+  
+
+}
+input[type="checkbox"]{
+     width: 0.75em;
+     
+}
+
+p{
+    margin-top: -2.5em;
+    margin-left: 2em;
+    width:20em;
+}
+
+
+select {
+    width: 25em;
+}
+
+label{
+    color: #2CB4CE;
+    font-style: inherit;
+}
