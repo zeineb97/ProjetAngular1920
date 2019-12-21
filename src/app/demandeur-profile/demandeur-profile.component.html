@@ -18,7 +18,7 @@
 <!-- User logged in -->
 <ng-template #authenticated>
     <div *ngIf="auth.demandeur | async as demandeur">
-        <h3>Howdy, {{ demandeur.displayName }}</h3>
+        <h3> {{ demandeur.displayName }}</h3>
         <img [src]="demandeur.photoURL">
 
 
