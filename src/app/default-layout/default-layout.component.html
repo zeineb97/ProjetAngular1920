@@ -3,19 +3,27 @@
     <a class="navbar-brand" href="#">Dispo?</a>
     <div class="form-inline my-2 my-lg-0">
       <a class="nav-link" href="#">
-      <span style="color: #EDC551; font-size: 18px;">
-        <i class="fa fa-user-circle-o fa-lg" aria-hidden="true">
-        </i>
-      </span>
+        <span style="color: #EDC551; font-size: 18px;">
+          <i class="fa fa-user-circle-o fa-lg" aria-hidden="true">
+          </i>
+        </span>
       </a>
       <a class="nav-link" href="#">
-      <span style="color: #EDC551; font-size: 18px;">
-        <i class="fa fa-wrench fa-lg" aria-hidden="true">
-        </i>
-      </span>
+        <span style="color: #EDC551; font-size: 18px;">
+          <i class="fa fa-wrench fa-lg" aria-hidden="true">
+          </i>
+        </span>
       </a>
-      <button class="btn btn-outline-secondary my-2 my-sm-0"  type="submit">
-        <div class="signIn">Log In</div> </button>
+      <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">
+        <button (click)="goToArtisan()">
+          <div>Artisan</div>
+        </button>
+        <button (click)="goToDemandeur()">
+          <div>Demandeur</div>
+        </button>
+        <div class="signIn">Log In</div>
+      </button>
+
     </div>
 
   </nav>
@@ -32,7 +40,7 @@
         <h5 class="text-uppercase font-weight-bold" style="color: #EDC551">A propos </h5>
         <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; color: #EDC551">
         <br>
-        <p style="color: #F2F2F2" >
+        <p style="color: #F2F2F2">
           Une plateforme web sur laquelle les artisans qui offre des services de bricolage, de réparation et de
           réhabilitation connectent et offrent leurs services à tout demandeur.
         </p>
@@ -46,7 +54,7 @@
         <br>
         <ul class="list-unstyled" style="color: #F2F2F2">
           <li>
-            <p >
+            <p>
               <i class="fa fa-home" aria-hidden="true"></i> Centre Urbain Nord, Tunisie</p>
           </li>
           <li>
@@ -75,22 +83,21 @@
 
       <ul class="list-unstyled list-inline text-center">
         <li class="list-inline-item">
-            <span style="font-size: 30px; ">
+          <span style="font-size: 30px; ">
             <i class="fa fa-facebook-square fa-lg" aria-hidden="true"></i>
-            </span>
+          </span>
         </li>
         <li class="list-inline-item">
-             <span style=" font-size: 30px; ">
+          <span style=" font-size: 30px; ">
             <i class="fa fa-instagram fa-lg" aria-hidden="true"></i>
-             </span>
+          </span>
         </li>
         <li class="list-inline-item">
-            <span style=" font-size: 30px; ">
+          <span style=" font-size: 30px; ">
             <i class="fa fa-twitter-square fa-lg" aria-hidden="true"></i>
-            </span>
+          </span>
         </li>
       </ul>
     </div>
   </div>
 </footer>
-

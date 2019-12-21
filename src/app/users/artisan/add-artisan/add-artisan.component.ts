@@ -18,10 +18,10 @@ export class AddArtisanComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  addArtisan(formulaire: NgForm) {
-    this.ArtisanService.createArtisan(formulaire.value);
-
-  }
+  /*
+    addArtisan(formulaire: NgForm) {
+      this.ArtisanService.createArtisan(formulaire.value);
+  
+    }*/
 
 }
