@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {AngularFirestore, AngularFirestoreCollectionGroup} from '@angular/fire/firestore';
 import { Offre } from '../model/Offre';
+import {resolve} from "url";
+import {map} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -15,10 +17,10 @@ export class OffreService {
   }
 
   createOffre(artisanKey, value) {
-    return this.db.collection('users').doc(artisanKey).collection('offres').add({
-      name: value.name,
-      offretype: value.offretype,
-      description: value.description
+    return this.db.collection('Artisan').doc(artisanKey).collection('offres').add({
+      name: value,
+      offretype: 'value.offretype',
+      description: 'value.description'
     });
   }
 
@@ -30,6 +32,25 @@ export class OffreService {
       });
     });
   }*/
+
+  getAllOffres() {
+    this.db.collectionGroup('offres').snapshotChanges()
+      .pipe(
+        map(changes => {
+          return changes.map(doc => {
+            return{
+              id: doc.payload.doc.id,
+              data: doc.payload.doc.data()
+            };
+          });
+        })
+      );
+   /* const o = this.db.collectionGroup('offres');
+    o.get().subscribe( (querySnapshot) => {
+      resolve(querySnapshot);
+      console.log(querySnapshot);
+    });*/
+  }
 
   getOffreOfArtisan(artisanKey: string) {
     return new Promise<any>((resolve, reject) => {

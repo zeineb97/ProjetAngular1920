@@ -6,8 +6,8 @@ import { AddArtisanComponent } from './users/artisan/add-artisan/add-artisan.com
 import { ListArtisanComponent } from './users/artisan/list-artisan/list-artisan.component';
 import { from } from 'rxjs';
 import { CatalogComponent } from './catalogTech/catalog/catalog.component';
-import { UserProfileComponent } from './user-profile/user-profile.component'
-import { ArtisanProfileComponent } from './artisan-profile/artisan-profile.component'
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { ArtisanProfileComponent } from './artisan-profile/artisan-profile.component';
 import { DemandeurProfileComponent } from './demandeur-profile/demandeur-profile.component';
 const routes: Routes = [
   {
