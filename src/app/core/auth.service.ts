@@ -1,33 +1,3 @@
-/*import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-import { Artisan } from '../model/Artisan';
-
-@Injectable({
-  providedIn: 'root'
-})
-export class ArtisanService {
-
-  private dbPath = '/Artisan';
-
-  ArtisansRef: AngularFirestoreCollection<Artisan> = null;
-
-  constructor(private db: AngularFirestore) {
-    this.ArtisansRef = db.collection(this.dbPath);
-  }
-
-  createArtisan(Artisan: Artisan): void {
-    this.ArtisansRef.add({ ...Artisan });
-  }
-
-
-  getArtisansList(): AngularFirestoreCollection<Artisan> {
-    return this.ArtisansRef;
-  }
-
-
-
-}*/
-
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -43,30 +13,24 @@ interface Artisan {
   email: string;
   photoURL?: string;
   displayName?: string;
-  telNumber?: string;
   gouvernerat?: string;
   delegation?: string;
   localite?: string;
-  complete?: boolean;
 
 }
 
 
 @Injectable({ providedIn: 'root' })
 
-export class ArtisanService {
+export class AuthService {
 
   artisan: Observable<Artisan>;
-
-
-
 
   constructor(
     private afAuth: AngularFireAuth,
     private afs: AngularFirestore,
     private router: Router
   ) {
-
 
     //// Get auth data, then get firestore user document || null
     this.artisan = this.afAuth.authState.pipe(
@@ -110,39 +74,9 @@ export class ArtisanService {
   }
 
 
-  public updateArtisan(artisan, artisanForm) {
-
-    const userRef: AngularFirestoreDocument<any> = this.afs.doc(`Artisans/${artisan.uid}`);
-    artisan.complete = true;
-    const data: Artisan = {
-      uid: artisan.uid,
-      email: artisan.email,
-      displayName: artisan.displayName,
-      photoURL: artisan.photoURL,
-      telNumber: artisanForm.telNumber,
-      gouvernerat: artisanForm.gouvernerat,
-      delegation: artisanForm.delegation,
-      localite: artisanForm.localite,
-      complete: artisan.complete,
-    }
-
-    return userRef.set(data, { merge: true }).then(function () {
-      console.log("Document successfully written!");
-
-    })
-      .catch(function (error) {
-        console.error("Error writing document: ", error);
-      });
-
-  }
-
-
   signOut() {
     this.afAuth.auth.signOut().then(() => {
       this.router.navigate(['/']);
     });
   }
-
-
-
 }

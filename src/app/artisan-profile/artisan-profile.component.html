@@ -1,0 +1,84 @@
+<div *ngIf="auth.artisan | async; then authenticated else guest">
+    <!-- template will replace this div -->
+</div>
+<!-- User NOT logged in -->
+<ng-template #guest>
+    <h3>Howdy, GUEST</h3>
+    <p>Login to get started...</p>
+
+    <button (click)="auth.googleLogin()">
+        <i class="fa fa-google"></i> Connect Google
+    </button>
+</ng-template>
+<!-- User logged in -->
+<ng-template #authenticated>
+    <div *ngIf="auth.artisan | async as artisan">
+
+        <div *ngIf="artisan.complete ; then complete else notComplete">
+            <!-- template logged in  will replace this div -->
+        </div>
+
+        <ng-template #notComplete>
+
+            <div class="container">
+                <div class="row">
+                    <form #formulaire='ngForm'>
+                        <label for="name">Nom et Prénom</label>
+                        <h3>{{ artisan.displayName }}</h3>
+
+                        <!--<img [src]="artisan.photoURL">
+-->
+                        <label for="email">Adresse Mail</label>
+                        <h3>{{ artisan.email }}</h3>
+                        <label for="telNumber">Téléphone</label>
+                        <input id="telNumber" pattern="\d{22222222}" type="text" class="form-control" ngModel
+                            name="telNumber" required>
+                        <label>Gouvernerat</label>
+                        <select ngModel name="gouvernerat" class="form-control">
+                            <option value="T">Tunis</option>
+                            <option value="A">Ariana</option>
+                            <option value="B">Ben Arous</option>
+                        </select>
+                        <label>Délégation</label>
+                        <select ngModel name="delegation" class="form-control">
+                            <option value="T">Tunis</option>
+                            <option value="A">Ariana</option>
+                            <option value="B">Ben Arous</option>
+                        </select>
+                        <label>Localité</label>
+                        <select ngModel name="localite" class="form-control">
+                            <option value="T">Tunis</option>
+                            <option value="A">Ariana</option>
+                            <option value="B">Ben Arous</option>
+                        </select>
+                        <button type="submit" (click)="completeArtisan(artisan,formulaire) "
+                            class="btn btn-primary">Completer mon
+                            profile</button>
+                    </form>
+                </div>
+            </div>
+        </ng-template>
+
+        <ng-template #complete>
+            {{artisan.complete}}
+            <br>
+            {{ artisan.displayName }}
+            <br>
+            {{ artisan.email }}
+            <br>
+            {{artisan.telNumber}}
+            <br>
+            {{artisan.delegation}}
+            <br>
+            {{artisan.localite}}
+            <br>
+            {{artisan.gouvernerat}}
+            <br>
+            <br>
+            <button type="submit" class=" btn btn-primary">Ajouter offre</button>
+        </ng-template>
+
+    </div>
+    <button (click)="auth.signOut()">Logout</button>
+
+</ng-template>

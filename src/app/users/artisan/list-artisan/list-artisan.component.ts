@@ -15,20 +15,20 @@ export class ListArtisanComponent implements OnInit {
   constructor(private artisanService: ArtisanService) { }
 
   ngOnInit() {
-    this.getArtisansList();
+    //this.getArtisansList();
   }
-
-  getArtisansList() {
-    this.artisanService.getArtisansList().snapshotChanges().pipe(
-      map(changes =>
-        changes.map(c =>
-          ({ key: c.payload.doc.id, ...c.payload.doc.data() })
+  /*
+    getArtisansList() {
+      this.artisanService.getArtisansList().snapshotChanges().pipe(
+        map(changes =>
+          changes.map(c =>
+            ({ key: c.payload.doc.id, ...c.payload.doc.data() })
+          )
         )
-      )
-    ).subscribe(artisans => {
-      this.artisans = artisans;
-    });
-  }
-
+      ).subscribe(artisans => {
+        this.artisans = artisans;
+      });
+    }
+  */
 
 }
