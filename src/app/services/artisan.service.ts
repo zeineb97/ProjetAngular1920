@@ -57,6 +57,7 @@ interface Artisan {
 export class ArtisanService {
 
   artisan: Observable<Artisan>;
+  private id: any | string;
 
 
 
@@ -72,24 +73,24 @@ export class ArtisanService {
     this.artisan = this.afAuth.authState.pipe(
       switchMap(artisan => {
         if (artisan) {
-          return this.afs.doc<Artisan>(`Artisans/${artisan.uid}`).valueChanges()
+          return this.afs.doc<Artisan>(`Artisans/${artisan.uid}`).valueChanges();
         } else {
-          return of(null)
+          return of(null);
         }
       })
-    )
+    );
   }
 
   googleLogin() {
-    const provider = new auth.GoogleAuthProvider()
+    const provider = new auth.GoogleAuthProvider();
     return this.oAuthLogin(provider);
   }
 
   private oAuthLogin(provider) {
     return this.afAuth.auth.signInWithPopup(provider)
       .then((credential) => {
-        this.updateUserData(credential.user)
-      })
+        this.updateUserData(credential.user);
+      });
   }
 
 
@@ -103,9 +104,9 @@ export class ArtisanService {
       email: artisan.email,
       displayName: artisan.displayName,
       photoURL: artisan.photoURL
-    }
+    };
 
-    return userRef.set(data, { merge: true })
+    return userRef.set(data, { merge: true });
 
   }
 
@@ -124,7 +125,7 @@ export class ArtisanService {
       delegation: artisanForm.delegation,
       localite: artisanForm.localite,
       complete: artisan.complete,
-    }
+    };
 
     return userRef.set(data, { merge: true }).then(function () {
       console.log("Document successfully written!");
@@ -141,6 +142,22 @@ export class ArtisanService {
     this.afAuth.auth.signOut().then(() => {
       this.router.navigate(['/']);
     });
+  }
+
+  authenticated(): boolean {
+    return this.afAuth.authState !== null;
+  }
+
+  getArtisanId() {
+    if (this.authenticated()) {
+      this.afAuth.authState.subscribe(user =>{
+        this.id = user.uid;
+      });
+      console.log(this.id);
+      return this.id ;
+    } else {
+      return ' ';
+    }
   }
 
 
