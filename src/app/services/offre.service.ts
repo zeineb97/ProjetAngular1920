@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import {AngularFirestore, AngularFirestoreCollectionGroup} from '@angular/fire/firestore';
 import { Offre } from '../model/Offre';
-import {resolve} from "url";
-import {map} from "rxjs/operators";
+import {resolve} from 'url';
+import {map} from 'rxjs/operators';
+import {ArtisanService} from './artisan.service';
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -12,53 +14,47 @@ export class OffreService {
 
 
   OffreRef: AngularFirestoreCollectionGroup<Offre> = null;
-  constructor(private db: AngularFirestore) {
+  constructor(private db: AngularFirestore, private artisanService: ArtisanService) {
     this.OffreRef = db.collectionGroup('Offre');
   }
 
-  createOffre(artisanKey, value) {
-    return this.db.collection('Artisan').doc(artisanKey).collection('offres').add({
+  createOffre(value): Promise<any> {
+    if (this.artisanService.authenticated()) {
+      var Key = this.artisanService.getArtisanId();
+    }
+
+    return this.db.collection('Artisans').doc(Key).collection('offres').add({
       name: value,
       offretype: 'value.offretype',
       description: 'value.description'
     });
   }
 
-  /*getAllOffres() {
-    let Offres = this.db.collectionGroup('Offre');
-    Offres.get().then(function(querySnapshot) {
-      querySnapshot.forEach( (doc) => {
-        console.log(doc.id, ' => ', doc.data());
-      });
-    });
-  }*/
 
-  getAllOffres() {
-    this.db.collectionGroup('offres').snapshotChanges()
-      .pipe(
-        map(changes => {
-          return changes.map(doc => {
-            return{
-              id: doc.payload.doc.id,
-              data: doc.payload.doc.data()
-            };
-          });
-        })
-      );
-   /* const o = this.db.collectionGroup('offres');
-    o.get().subscribe( (querySnapshot) => {
-      resolve(querySnapshot);
-      console.log(querySnapshot);
+  getAllOffres(): Observable<any> {
+    const alloffres = this.db.collectionGroup('offres');
+    return alloffres.get();
+      /*.subscribe( (querySnapshot) => {
+      for ( let offre of querySnapshot.docs) {
+        console.log(offre.data());
+      }
     });*/
   }
 
-  getOffreOfArtisan(artisanKey: string) {
-    return new Promise<any>((resolve, reject) => {
-      this.db.collection('/users').doc(artisanKey).collection('/offres').snapshotChanges()
-        .subscribe(snapshots => {
-          resolve(snapshots);
-        });
-    });
+  getOffreOfArtisan(artisanKey: string): Observable<any> {
+    const offresofartisan = this.db.collection('Artisans').doc(artisanKey).collection('offres');
+    return offresofartisan.get();
+      /*.subscribe( (querySnapshot) => {
+      for ( let offre of querySnapshot.docs) {
+        console.log(offre.data());
+      }
+    });*/
+  }
+
+  getOffreOfCurrentArtisan(): Observable<any> {
+    let key = this.artisanService.getArtisanId();
+    console.log(key);
+    return this.getOffreOfArtisan(key);
   }
 
   updateOffre(artisanKey, offreKey, value) {
