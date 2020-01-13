@@ -1,27 +1,46 @@
 <div *ngIf="auth.demandeur | async; then authenticated else guest">
     <!-- template will replace this div -->
 </div>
-
-
 <!-- User NOT logged in -->
 <ng-template #guest>
-    <h3>Howdy, GUEST</h3>
-    <p>Login to get started...</p>
-
-    <button (click)="auth.googleLogin()">
-        <i class="fa fa-google"></i> Connect Google
-    </button>
-
+    <div style="background-color: rgb(245, 241, 229);">
+        <div class="card" style="width: 40rem;">
+            <img src="../../assets//Images/artisan.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Demandeur</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's
+                    content.</p>
+                <a class="btn btn-warning" (click)="auth.googleLogin()"><i class="fa fa-google"></i>Connect Google</a>
+            </div>
+        </div>
+    </div>
 </ng-template>
-
-
 <!-- User logged in -->
 <ng-template #authenticated>
     <div *ngIf="auth.demandeur | async as demandeur">
-        <h3> {{ demandeur.displayName }}</h3>
-        <img [src]="demandeur.photoURL">
-
-
+        <div class="container profile" style="background-color: rgb(245, 241, 229);">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="profile-img">
+                        <img src="{{demandeur.photoURL}}">
+                        <div class="file btn btn-lg btn-primary">
+                            Change Photo
+                            <input type="file" name="file" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="profile-head">
+                        <h5> {{ demandeur.displayName }}</h5>
+                        <h6>{{ demandeur.email }}</h6>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-warning">Modifer Profile</button>
+                </div>
+            </div>
+        </div>
         <button (click)="auth.signOut()">Logout</button>
     </div>
 </ng-template>
