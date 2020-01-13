@@ -9,7 +9,7 @@ import {Offre} from '../../model/Offre';
   styleUrls: ['./service-details.component.css']
 })
 export class ServiceDetailsComponent implements OnInit {
-  @Input() offre: Offre;
+  @Input() offre: Offre = null;
   title = 'modal';
 
   constructor() {}
