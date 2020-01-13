@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Offre} from '../../model/Offre';
+import {OffreService} from '../../services/offre.service';
 declare var $: any;
 @Component({
   selector: 'app-catalog',
@@ -9,23 +10,26 @@ declare var $: any;
 export class CatalogComponent implements OnInit {
   offres: Array<Offre> = [] ;
   selectedOffre: Offre;
-  constructor() { }
+  constructor(private offreSer: OffreService ) { }
 
   ngOnInit() {
-    const o1 = new Offre(1, 'bricoleur', 'Service de plomberie', 'assets/Images/exp1.jpg', ['assets/Images/exp1.jpg', 'assets/Images/exp1.jpg', 'assets/Images/exp1.jpg'], 25, 1);
-    const o2 = new Offre(2, 'transporteur', 'Service de transport', 'assets/Images/accueil1.jpg', ['assets/Images/exp1.jpg', 'assets/Images/exp1.jpg', 'assets/Images/exp1.jpg'], 25, 1);
-    const o3 = new Offre(3, 'plombier', 'Service de plomberie', 'assets/Images/accueil0.jpg', ['assets/Images/exp1.jpg', 'assets/Images/exp1.jpg', 'assets/Images/exp1.jpg'], 25, 1);
-    this.offres.push(o1);
-    this.offres.push(o2);
-    this.offres.push(o3);
-    this.offres = [
-      new Offre(1, 'bricoleur', 'Service de plomberie', 'assets/Images/exp1.jpg', ['assets/Images/exp1.jpg', 'assets/Images/exp1.jpg', 'assets/Images/exp1.jpg'], 25),
-      new Offre(2, 'transporteur', 'Service de transport', 'assets/Images/accueil1.jpg', ['assets/Images/exp1.jpg', 'assets/Images/exp1.jpg', 'assets/Images/exp1.jpg'], 25),
-      new Offre(3, 'plombier', 'Service de plomberie', 'assets/Images/accueil0.jpg', ['assets/Images/exp1.jpg', 'assets/Images/exp1.jpg', 'assets/Images/exp1.jpg'], 25),
-      new Offre(4, 'plombier', 'Service de plomberie', 'assets/Images/accueil3.jpg', ['assets/Images/exp1.jpg', 'assets/Images/exp1.jpg', 'assets/Images/exp1.jpg'], 25),
-      new Offre(5, 'mécanicien', 'Service de plomberie', 'assets/Images/exp2.jpg', ['assets/Images/exp1.jpg', 'assets/Images/exp1.jpg', 'assets/Images/exp1.jpg'], 25)
-    ];
+    this.offreSer.getAllOffres().subscribe( (querySnapshot) => {
+      for ( const offre of querySnapshot.docs) {
+        const id = offre.get('id');
+        const nom = offre.get('nom');
+        const description = offre.get('description');
+        const imagePrincipal = offre.get('imagePrincipal');
+        const imagesList = offre.get('imagesList');
+        const prix = offre.get('prix');
+        const o = new Offre(id, nom, description, imagePrincipal, imagesList, prix);
+       // console.log(o);
+        this.offres.push(o);
+      }
+     // console.log(this.offres);
+    });
+
   }
+
   selectOffre(offre)  {
     this.selectedOffre = offre; }
 }

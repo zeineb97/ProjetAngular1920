@@ -12,8 +12,7 @@ export class ServicesListeComponent implements OnInit {
   @Output() selectedOffre = new EventEmitter();
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
   selectOffre(selectedOffre) {
     this.selectedOffre.emit(
       selectedOffre
