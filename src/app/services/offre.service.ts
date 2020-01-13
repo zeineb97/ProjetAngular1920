@@ -18,15 +18,18 @@ export class OffreService {
     this.OffreRef = db.collectionGroup('Offre');
   }
 
-  createOffre(value): Promise<any> {
+  createOffre(offre : Offre): Promise<any> {
     if (this.artisanService.authenticated()) {
       var Key = this.artisanService.getArtisanId();
     }
 
     return this.db.collection('Artisans').doc(Key).collection('offres').add({
-      name: value,
-      offretype: 'value.offretype',
-      description: 'value.description'
+      id : offre.id,
+      nom : offre.nom,
+      descripton : offre.descripton,
+      imagePrincipal : offre.imagePrincipal,
+      imagesList : offre.imagesList,
+      prix : offre.prix
     });
   }
 
@@ -58,12 +61,12 @@ export class OffreService {
   }
 
   updateOffre(artisanKey, offreKey, value) {
-    return this.db.collection('/users').doc(artisanKey).collection('/offres').doc(offreKey).set(value);
+    return this.db.collection('/Artisans').doc(artisanKey).collection('/offres').doc(offreKey).set(value);
     // return this.offreRef.doc(offreKey).set(value);
   }
 
   deleteOffre(artisanKey, offreKey) {
-    return this.db.collection('/users').doc(artisanKey).collection('/offres').doc(offreKey).delete();
+    return this.db.collection('/Artisans').doc(artisanKey).collection('/offres').doc(offreKey).delete();
   }
 
 
