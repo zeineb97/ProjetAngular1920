@@ -15,11 +15,14 @@
         <input id="prix" pattern="\d{22222222}" type="text" class="form-control" ngModel name="prix" required />
         <br>
         Image Principale : <br><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i> <label for="imagePrincipale"></label>
-        <input type="file" class="imagePrincipale" id="imagePrincipale" />
+        <input type="file" class="imagePrincipale" id="imagePrincipale" (change)="showPreview($event)" ngModel name="imagePrincipal" required/>
+        <br>
+        <img [src]="imgSrc" width="250px" height="250px">
+
         <br>
 
         Liste d'images : <br> <i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i><label for="imagesList"></label>
-        <input type="file" class="imagesList" id="imagesList" multiple/>
+        <input type="file" class="imagesList" id="imagesList" multiple ngModel name="imagesList" />
         <br>
 
         <button type="submit" class="btn btn-warning" style="margin-left: 900px">Ajouter L'offre</button>
