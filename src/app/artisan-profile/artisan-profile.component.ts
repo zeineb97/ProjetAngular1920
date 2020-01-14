@@ -28,12 +28,14 @@ export class ArtisanProfileComponent {
     });
 
   }
-  completeArtisan(artisan, formulaire: NgForm) {
-    console.log(artisan, formulaire.value);
-
-    this.ArtisanService.updateArtisan(artisan, formulaire.value);
-    console.log(artisan.complete);
-  }
+  /*
+    completeArtisan(artisan, formulaire: NgForm) {
+      console.log(artisan, formulaire.value);
+  
+      this.ArtisanService.updateArtisan(artisan, formulaire.value);
+      console.log(artisan.complete);
+    }
+  */
   /*idArtisan(artisan) {
     this.ArtisanService.getArtisanById(artisan);
 

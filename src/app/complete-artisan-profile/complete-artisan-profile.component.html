@@ -1,5 +1,5 @@
 <p>{{artisanID}}</p>
-<button (click)=" currentArtisan()"></button>
+
 
 <div *ngIf="auth.artisan | async; then authenticated else guest">
     <!-- template will replace this div -->
@@ -78,6 +78,6 @@
         </ng-template>
 
     </div>
-    <button (click)="auth.signOut()">Logout</button>
+    <button (click)="onClick()">Logout</button>
 
 </ng-template>

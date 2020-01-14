@@ -163,10 +163,7 @@ export class ArtisanService {
     //localStorage.setItem (key,valeur )
   }*/
   returnCurrentArtisanId(): string {
-
-
     let myItem = localStorage.getItem(this.key);
-
     return myItem;
 
 
