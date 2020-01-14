@@ -9,6 +9,7 @@ import { CatalogComponent } from './catalogTech/catalog/catalog.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ArtisanProfileComponent } from './artisan-profile/artisan-profile.component';
 import { DemandeurProfileComponent } from './demandeur-profile/demandeur-profile.component';
+import {AddOffreComponent} from './add-offre/add-offre.component';
 import { CompleteArtisanProfileComponent } from './complete-artisan-profile/complete-artisan-profile.component'
 const routes: Routes = [
   {
@@ -49,6 +50,10 @@ const routes: Routes = [
   {
     path: 'profildemandeur',
     component: DemandeurProfileComponent
+  },
+  {
+    path: 'addoffre',
+    component: AddOffreComponent
   }
 
 ];

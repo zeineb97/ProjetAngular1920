@@ -20,7 +20,7 @@ export class OffreService {
 
   createOffre(offre : Offre): Promise<any> {
     if (this.artisanService.authenticated()) {
-      var Key = this.artisanService.getArtisanId();
+      var Key = this.artisanService.returnCurrentArtisanId();
     }
 
     return this.db.collection('Artisans').doc(Key).collection('offres').add({
@@ -55,7 +55,7 @@ export class OffreService {
   }
 
   getOffreOfCurrentArtisan(): Observable<any> {
-    let key = this.artisanService.getArtisanId();
+    let key = this.artisanService.returnCurrentArtisanId();
     console.log(key);
     return this.getOffreOfArtisan(key);
   }
