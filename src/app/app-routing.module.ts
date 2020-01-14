@@ -10,6 +10,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ArtisanProfileComponent } from './artisan-profile/artisan-profile.component';
 import { DemandeurProfileComponent } from './demandeur-profile/demandeur-profile.component';
 import {AddOffreComponent} from './add-offre/add-offre.component';
+import { CompleteArtisanProfileComponent } from './complete-artisan-profile/complete-artisan-profile.component'
 const routes: Routes = [
   {
     path: '',
@@ -33,6 +34,10 @@ const routes: Routes = [
   {
     path: 'catalog',
     component: CatalogComponent
+  },
+  {
+    path: 'cc',
+    component: CompleteArtisanProfileComponent
   },
   {
     path: 'profile',

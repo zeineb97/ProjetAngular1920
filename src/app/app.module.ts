@@ -26,6 +26,7 @@ import { ArtisanProfileComponent } from './artisan-profile/artisan-profile.compo
 import { DemandeurProfileComponent } from './demandeur-profile/demandeur-profile.component';
 import { AddOffreComponent } from './add-offre/add-offre.component';
 import { AvisComponent } from './avis/avis.component';
+import { CompleteArtisanProfileComponent } from './complete-artisan-profile/complete-artisan-profile.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,8 @@ import { AvisComponent } from './avis/avis.component';
     DemandeurProfileComponent,
     ServiceDetailsComponent,
     TitleFilterPipe,
+    DemandeurProfileComponent,
+    CompleteArtisanProfileComponent,
     DemandeurProfileComponent,
     AddOffreComponent,
     AvisComponent
