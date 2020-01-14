@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-add-offre',
@@ -14,6 +15,9 @@ export class AddOffreComponent implements OnInit {
   ngOnInit() {
 
   }
+  addOffre(formulaire: NgForm){
+    console.log(formulaire);
+  }
   showPreview(event: any) {
       if (event.target.files && event.target.files[0]) {
         const reader = new FileReader();
@@ -24,7 +28,6 @@ export class AddOffreComponent implements OnInit {
         this.imgSrc = 'assets/Images/default.png';
         this.selectedImage = null;
       }
-
   }
   detectImages(event: any) {
         this.selectedImagesList = event.target.files ;
