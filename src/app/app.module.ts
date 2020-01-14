@@ -23,7 +23,7 @@ import { CoreModule } from './core/core.module';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ArtisanProfileComponent } from './artisan-profile/artisan-profile.component';
 import { DemandeurProfileComponent } from './demandeur-profile/demandeur-profile.component';
-import { TestComponent } from './test/test.component';
+
 
 @NgModule({
   declarations: [
@@ -39,8 +39,7 @@ import { TestComponent } from './test/test.component';
     ServiceDetailsComponent,
     UserProfileComponent,
     ArtisanProfileComponent,
-    DemandeurProfileComponent,
-    TestComponent
+    DemandeurProfileComponent
   ],
   imports: [
     BrowserModule,
