@@ -27,14 +27,11 @@ export class ArtisanService {
 
 
 }*/
-
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-
 import { auth } from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
-
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
@@ -57,18 +54,14 @@ interface Artisan {
 export class ArtisanService {
 
   artisan: Observable<Artisan>;
-  private id: any | string;
-
-
-
+  id: string;
+  public key = 'token';
 
   constructor(
     private afAuth: AngularFireAuth,
     private afs: AngularFirestore,
     private router: Router
   ) {
-
-
     //// Get auth data, then get firestore user document || null
     this.artisan = this.afAuth.authState.pipe(
       switchMap(artisan => {
@@ -80,9 +73,9 @@ export class ArtisanService {
       })
     );
   }
-
   googleLogin() {
     const provider = new auth.GoogleAuthProvider();
+
     return this.oAuthLogin(provider);
   }
 
@@ -105,7 +98,8 @@ export class ArtisanService {
       displayName: artisan.displayName,
       photoURL: artisan.photoURL
     };
-
+    //setItem 
+    localStorage.setItem(this.key, data.uid);
     return userRef.set(data, { merge: true });
 
   }
@@ -128,6 +122,8 @@ export class ArtisanService {
     };
 
     return userRef.set(data, { merge: true }).then(function () {
+      //setItem 
+      this.getArtisanById(artisan);
       console.log("Document successfully written!");
 
     })
@@ -141,24 +137,46 @@ export class ArtisanService {
   signOut() {
     this.afAuth.auth.signOut().then(() => {
       this.router.navigate(['/']);
+      localStorage.removeItem(this.key);
     });
   }
 
   authenticated(): boolean {
     return this.afAuth.authState !== null;
   }
+  /*
+    getArtisanId() {
+      if (this.authenticated()) {
+        this.afAuth.authState.subscribe(user => {
+          this.id = user.uid;
+        });
+        console.log(this.id);
+        return this.id;
+      } else {
+        return ' ';
+      }
+    }*/
+  /*getArtisanById(artisan) {
 
-  getArtisanId() {
-    if (this.authenticated()) {
-      this.afAuth.authState.subscribe(user =>{
-        this.id = user.uid;
-      });
-      console.log(this.id);
-      return this.id ;
-    } else {
-      return ' ';
-    }
+    this.id = artisan.uid;
+    localStorage.setItem(this.key, this.id);
+    //localStorage.setItem (key,valeur )
+  }*/
+  returnCurrentArtisanId(): string {
+
+
+    let myItem = localStorage.getItem(this.key);
+
+    return myItem;
+
+
+
   }
+  getArtisanById(id: string) {
+    return this.afs.collection('Artisans').doc(id).get();
+
+  }
+
 
 
 
