@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="profile-img">
-                        <img src="{{artisan.photoURL}}">
+                        <img src="{{artisan?.photoURL}}">
                         <div class="file btn btn-lg btn-primary">
                             Change Photo
                             <input type="file" name="file" />
@@ -15,8 +15,8 @@
                 </div>
                 <div class="col-md-6">
                     <div class="profile-head">
-                        <h5> {{ artisan.displayName }}</h5>
-                        <h6>{{ artisan.email }}</h6>
+                        <h5> {{ artisan?.displayName }}</h5>
+                        <h6>{{ artisan?.email }}</h6>
 
                     </div>
                 </div>
@@ -32,7 +32,7 @@
                             <label>Numéro de Telephone</label>
                         </div>
                         <div class="col-md-6">
-                            <p>{{artisan.telNumber}}</p>
+                            <p>{{artisan?.telNumber}}</p>
                         </div>
                     </div>
                     <div class="row">
@@ -40,7 +40,7 @@
                             <label>Delegation</label>
                         </div>
                         <div class="col-md-6">
-                            <p>{{artisan.delegation}}</p>
+                            <p>{{artisan?.delegation}}</p>
                         </div>
                     </div>
                     <div class="row">
@@ -48,7 +48,7 @@
                             <label>Localité</label>
                         </div>
                         <div class="col-md-6">
-                            <p>{{artisan.localite}}</p>
+                            <p>{{artisan?.localite}}</p>
                         </div>
                     </div>
                     <div class="row">
@@ -56,7 +56,7 @@
                             <label>Gouvernerat</label>
                         </div>
                         <div class="col-md-6">
-                            <p>{{artisan.gouvernerat}}</p>
+                            <p>{{artisan?.gouvernerat}}</p>
                         </div>
                     </div>
 
