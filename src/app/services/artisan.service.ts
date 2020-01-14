@@ -149,12 +149,20 @@ export class ArtisanService {
     return this.afAuth.authState !== null;
   }
 
-  getArtisanId(): Observable<any> {
-    if (this.authenticated()) {
-      return this.afAuth.authState;
-    } else {
-      return null;
-    }
+  getArtisanId(): Promise<any> {
+    var promise = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        console.log("Async Work Complete");
+        if (this.authenticated()) {
+          this.afAuth.authState.subscribe((user) => {
+            resolve(user.uid);
+          });
+        } else {
+          reject();
+        }
+      }, 1000);
+    });
+    return promise;
 
   }
 
