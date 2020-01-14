@@ -19,11 +19,11 @@ import { CatalogComponent } from './catalogTech/catalog/catalog.component';
 import { ServicesListeComponent } from './catalogTech/services-liste/services-liste.component';
 import { ServiceItemComponent } from './catalogTech/service-item/service-item.component';
 import { ServiceDetailsComponent } from './catalogTech/service-details/service-details.component';
+import { TitleFilterPipe } from './catalogTech/filters/title-filter.pipe';
 import { CoreModule } from './core/core.module';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ArtisanProfileComponent } from './artisan-profile/artisan-profile.component';
 import { DemandeurProfileComponent } from './demandeur-profile/demandeur-profile.component';
-
 
 @NgModule({
   declarations: [
@@ -39,6 +39,9 @@ import { DemandeurProfileComponent } from './demandeur-profile/demandeur-profile
     ServiceDetailsComponent,
     UserProfileComponent,
     ArtisanProfileComponent,
+    DemandeurProfileComponent,
+    ServiceDetailsComponent,
+    TitleFilterPipe,
     DemandeurProfileComponent
   ],
   imports: [
