@@ -1,0 +1,46 @@
+.signup{
+    border-color: #666666;
+    margin-left: 50em;
+    
+}
+input { 
+    width: 25em;
+    height: 30px;
+    color:#EDC551;
+    color:#2CB4CE ;
+  
+
+}
+input[type="checkbox"]{
+     width: 0.75em;
+     
+}
+
+/*p{
+    margin-top: -2.5em;
+    margin-left: 2em;
+    width:20em;
+}*/
+
+
+select {
+    width: 25em;
+}
+p{
+    color: #19647E;
+    font-style: inherit;
+}
+label {
+color: #19647E;
+    font-style: inherit;
+    font-weight: bold;
+}
+
+.card{
+    position: relative;
+     margin: 0 auto; /* Added */
+        float: none; /* Added */
+        margin-bottom: 10px; /* Added */
+}
+
+

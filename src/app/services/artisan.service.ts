@@ -1,33 +1,3 @@
-/*import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-import { Artisan } from '../model/Artisan';
-
-@Injectable({
-  providedIn: 'root'
-})
-export class ArtisanService {
-
-  private dbPath = '/Artisan';
-
-  ArtisansRef: AngularFirestoreCollection<Artisan> = null;
-
-  constructor(private db: AngularFirestore) {
-    this.ArtisansRef = db.collection(this.dbPath);
-  }
-
-  createArtisan(Artisan: Artisan): void {
-    this.ArtisansRef.add({ ...Artisan });
-  }
-
-
-  getArtisansList(): AngularFirestoreCollection<Artisan> {
-    return this.ArtisansRef;
-  }
-
-
-
-}*/
-
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -58,7 +28,7 @@ export class ArtisanService {
 
   artisan: Observable<Artisan>;
   private id: any | string;
-
+  user: any;
 
 
 
@@ -147,18 +117,23 @@ export class ArtisanService {
   authenticated(): boolean {
     return this.afAuth.authState !== null;
   }
-
-  getArtisanId() {
+  getArtisanId(): Observable<any> {
     if (this.authenticated()) {
-      this.afAuth.authState.subscribe(user =>{
-        this.id = user.uid;
-      });
-      console.log(this.id);
-      return this.id ;
+      return this.afAuth.authState;
     } else {
-      return ' ';
+      return null;
     }
+
   }
+
+
+
+  getArtisanById(key: string): Observable<any> {
+
+    return this.afs.collection('Artisans').doc(key).get();
+
+  }
+
 
 
 

@@ -8,17 +8,24 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./artisan-profile.component.css']
 })
 export class ArtisanProfileComponent {
-
+  id: string;
+  artisan: any;
   constructor(
     public auth: ArtisanService,
     private ArtisanService: ArtisanService
   ) { }
+  ngOnInit() {
 
-  completeArtisan(artisan, formulaire: NgForm) {
-    console.log(artisan, formulaire.value);
+    this.ArtisanService.getArtisanId().subscribe((user) => {
+      this.id = user.uid;
+    });
+    setTimeout(() => {
+      this.ArtisanService.getArtisanById(this.id).subscribe((artisan) => {
+        this.artisan = artisan
+      });
 
-    this.ArtisanService.updateArtisan(artisan, formulaire.value);
-    console.log(artisan.complete);
+    }, 6000);
   }
+
 
 }

@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import {AngularFirestore, AngularFirestoreCollectionGroup} from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollectionGroup } from '@angular/fire/firestore';
 import { Offre } from '../model/Offre';
-import {resolve} from 'url';
-import {map} from 'rxjs/operators';
-import {ArtisanService} from './artisan.service';
-import {Observable} from "rxjs";
+import { resolve } from 'url';
+import { map } from 'rxjs/operators';
+import { ArtisanService } from './artisan.service';
+import { Observable } from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,7 @@ export class OffreService {
     this.OffreRef = db.collectionGroup('Offre');
   }
 
-  createOffre(offre : Offre): Promise<any> {
+  /*createOffre(offre : Offre): Promise<any> {
     if (this.artisanService.authenticated()) {
       var Key = this.artisanService.getArtisanId();
     }
@@ -31,34 +31,34 @@ export class OffreService {
       imagesList : offre.imagesList,
       prix : offre.prix
     });
-  }
+  }*/
 
 
   getAllOffres(): Observable<any> {
     const alloffres = this.db.collectionGroup('offres');
     return alloffres.get();
-      /*.subscribe( (querySnapshot) => {
-      for ( let offre of querySnapshot.docs) {
-        console.log(offre.data());
-      }
-    });*/
+    /*.subscribe( (querySnapshot) => {
+    for ( let offre of querySnapshot.docs) {
+      console.log(offre.data());
+    }
+  });*/
   }
 
   getOffreOfArtisan(artisanKey: string): Observable<any> {
     const offresofartisan = this.db.collection('Artisans').doc(artisanKey).collection('offres');
     return offresofartisan.get();
-      /*.subscribe( (querySnapshot) => {
-      for ( let offre of querySnapshot.docs) {
-        console.log(offre.data());
-      }
-    });*/
+    /*.subscribe( (querySnapshot) => {
+    for ( let offre of querySnapshot.docs) {
+      console.log(offre.data());
+    }
+  });*/
   }
 
-  getOffreOfCurrentArtisan(): Observable<any> {
+  /*getOffreOfCurrentArtisan(): Observable<any> {
     let key = this.artisanService.getArtisanId();
     console.log(key);
     return this.getOffreOfArtisan(key);
-  }
+  }*/
 
   updateOffre(artisanKey, offreKey, value) {
     return this.db.collection('/Artisans').doc(artisanKey).collection('/offres').doc(offreKey).set(value);

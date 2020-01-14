@@ -1,4 +1,7 @@
-<!--
+<div *ngIf="auth.artisan | async; then authenticated else guest">
+    <!-- template will replace this div -->
+</div>
+<!-- User NOT logged in -->
 <ng-template #guest>
     <div style="background-color: rgb(245, 241, 229);">
         <div class="card" style="width: 40rem;">
@@ -14,10 +17,12 @@
     </div>
 
 </ng-template>
-
+<!-- User logged in -->
 <ng-template #authenticated>
     <div *ngIf="auth.artisan | async as artisan">
-      
+        <div *ngIf="artisan.complete ; then complete else notComplete">
+            <!-- template logged in  will replace this div -->
+        </div>
         <ng-template #notComplete>
             <div style="background-color: rgb(245, 241, 229);">
                 <div class="card" style="width: 40rem;">
@@ -60,89 +65,86 @@
                 </div>
             </div>
         </ng-template>
-    -->
+        <!--
+        <ng-template #complete>
+            <div class="container profile" style="background-color: rgb(245, 241, 229);">
+                <form>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="profile-img">
+                                <img src="{{artisan.photoURL}}">
+                                <div class="file btn btn-lg btn-primary">
+                                    Change Photo
+                                    <input type="file" name="file" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="profile-head">
+                                <h5> {{ artisan.displayName }}</h5>
+                                <h6>{{ artisan.email }}</h6>
 
-
-
-
-<div>
-
-    <div class="container profile" style="background-color: rgb(245, 241, 229);">
-        <form>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="profile-img">
-                        <img src="{{artisan.photoURL}}">
-                        <div class="file btn btn-lg btn-primary">
-                            Change Photo
-                            <input type="file" name="file" />
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <button type="submit" class="btn btn-warning">Modifer Profile</button>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="profile-head">
-                        <h5> {{ artisan.displayName }}</h5>
-                        <h6>{{ artisan.email }}</h6>
+                    <div class="row">
+                        <div class="col-md-4"></div>
+                        <div class="col-md-8">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Numéro de Telephone</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{artisan.telNumber}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Delegation</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{artisan.delegation}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Localité</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{artisan.localite}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Gouvernerat</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{artisan.gouvernerat}}</p>
+                                </div>
+                            </div>
 
+
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-2">
-                    <button type="submit" class="btn btn-warning">Modifer Profile</button>
-                </div>
+
+                    <div class="row">
+                        <div class="col-md"></div>
+                        <div class="col-md">
+                            <button type="submit" class="btn btn-warning">Ajouter offre</button>
+                        </div>
+
+                        <div class="col-md"></div>
+                    </div>
+                </form>
             </div>
-            <div class="row">
-                <div class="col-md-4"></div>
-                <div class="col-md-8">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label>Numéro de Telephone</label>
-                        </div>
-                        <div class="col-md-6">
-                            <p>{{artisan.telNumber}}</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label>Delegation</label>
-                        </div>
-                        <div class="col-md-6">
-                            <p>{{artisan.delegation}}</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label>Localité</label>
-                        </div>
-                        <div class="col-md-6">
-                            <p>{{artisan.localite}}</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label>Gouvernerat</label>
-                        </div>
-                        <div class="col-md-6">
-                            <p>{{artisan.gouvernerat}}</p>
-                        </div>
-                    </div>
 
 
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md"></div>
-                <div class="col-md">
-                    <button type="submit" class="btn btn-warning">Ajouter offre</button>
-                </div>
-
-                <div class="col-md"></div>
-            </div>
-        </form>
+        </ng-template>
+-->
     </div>
+    <button (click)="auth.signOut()">Logout</button>
 
-
-
-</div>
-
-<button (click)="auth.signOut()">Logout</button>
+</ng-template>
