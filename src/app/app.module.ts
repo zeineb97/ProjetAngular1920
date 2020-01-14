@@ -25,6 +25,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ArtisanProfileComponent } from './artisan-profile/artisan-profile.component';
 import { DemandeurProfileComponent } from './demandeur-profile/demandeur-profile.component';
 import { AddOffreComponent } from './add-offre/add-offre.component';
+import { AvisComponent } from './avis/avis.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { AddOffreComponent } from './add-offre/add-offre.component';
     ServiceDetailsComponent,
     TitleFilterPipe,
     DemandeurProfileComponent,
-    AddOffreComponent
+    AddOffreComponent,
+    AvisComponent
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class AddOffreComponent implements OnInit {
    imgSrc = 'assets/Images/default.png';
    selectedImage: any = null ;
+   selectedImagesList: any = null ;
   constructor() { }
 
   ngOnInit() {
@@ -24,5 +25,14 @@ export class AddOffreComponent implements OnInit {
         this.selectedImage = null;
       }
 
+  }
+  detectImages(event: any) {
+        this.selectedImagesList = event.target.files ;
+        console.log(this.selectedImagesList);
+  }
+
+  submit() {
+  //  const imagepath = '${this.selectedImage.name}_${new Date().getTime()}';
+   // console.log(imagepath);
   }
 }
