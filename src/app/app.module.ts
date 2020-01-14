@@ -24,6 +24,8 @@ import { CoreModule } from './core/core.module';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ArtisanProfileComponent } from './artisan-profile/artisan-profile.component';
 import { DemandeurProfileComponent } from './demandeur-profile/demandeur-profile.component';
+import {TestComponent} from './test/test.component';
+import { TestsComponent } from './tests/tests.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { DemandeurProfileComponent } from './demandeur-profile/demandeur-profile
     DemandeurProfileComponent,
     ServiceDetailsComponent,
     TitleFilterPipe,
-    DemandeurProfileComponent
+    DemandeurProfileComponent,
+    TestComponent,
+    TestsComponent
   ],
   imports: [
     BrowserModule,

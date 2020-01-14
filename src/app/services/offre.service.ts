@@ -18,7 +18,7 @@ export class OffreService {
     this.OffreRef = db.collectionGroup('Offre');
   }
 
-  createOffre(offre : Offre): Promise<any> {
+  /*createOffre(offre : Offre): Promise<any> {
     if (this.artisanService.authenticated()) {
       var Key = this.artisanService.getArtisanId();
     }
@@ -31,7 +31,7 @@ export class OffreService {
       imagesList : offre.imagesList,
       prix : offre.prix
     });
-  }
+  }*/
 
 
   getAllOffres(): Observable<any> {
@@ -54,11 +54,11 @@ export class OffreService {
     });*/
   }
 
-  getOffreOfCurrentArtisan(): Observable<any> {
+  /*getOffreOfCurrentArtisan(): Observable<any> {
     let key = this.artisanService.getArtisanId();
     console.log(key);
     return this.getOffreOfArtisan(key);
-  }
+  }*/
 
   updateOffre(artisanKey, offreKey, value) {
     return this.db.collection('/Artisans').doc(artisanKey).collection('/offres').doc(offreKey).set(value);

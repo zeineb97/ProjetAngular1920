@@ -35,8 +35,9 @@ import { auth } from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 
-import { Observable, of } from 'rxjs';
+import {from, Observable, of} from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+
 
 interface Artisan {
   uid: string;
@@ -148,16 +149,13 @@ export class ArtisanService {
     return this.afAuth.authState !== null;
   }
 
-  getArtisanId() {
+  getArtisanId(): Observable<any> {
     if (this.authenticated()) {
-      this.afAuth.authState.subscribe(user =>{
-        this.id = user.uid;
-      });
-      console.log(this.id);
-      return this.id ;
+      return this.afAuth.authState;
     } else {
-      return ' ';
+      return null;
     }
+
   }
 
 
