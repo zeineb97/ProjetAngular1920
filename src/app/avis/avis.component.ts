@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {Avis} from "../model/avis";
-import {AvisService} from "../services/avis.service";
 
 
 @Component({
@@ -11,8 +10,8 @@ import {AvisService} from "../services/avis.service";
 })
 export class AvisComponent implements OnInit {
 
-  @Input() idArtisan: string;
-  constructor(private avisService: AvisService) { }
+  @Input() avisTab: Avis[];
+  constructor() { }
 
   ngOnInit() {
   }

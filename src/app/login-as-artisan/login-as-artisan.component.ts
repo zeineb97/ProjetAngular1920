@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ArtisanService} from "../services/artisan.service";
-import {Router} from "@angular/router";
+import {ArtisanService} from '../services/artisan.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login-as-artisan',
