@@ -1,11 +1,13 @@
 export class Avis {
   demandeurId?: string ;
-  avis?: string ;
+  demandeurName?: string;
+  texte?: string ;
 
 
-  constructor(artisanId = '', avis = '') {
+  constructor(artisanId = '', demandeurName = '', texte = '') {
     this.demandeurId = artisanId;
-    this.avis = avis;
+    this.demandeurName = demandeurName;
+    this.texte = texte;
   }
 
 

@@ -1,10 +1,14 @@
 import {Component, OnInit} from '@angular/core';
 import { ArtisanService } from '../services/artisan.service';
 import { NgForm } from '@angular/forms';
-import {ActivatedRoute, Router} from "@angular/router";
-import {AvisComponent} from "../avis/avis.component";
-import {Avis} from "../model/avis";
-import {AvisService} from "../services/avis.service";
+import {ActivatedRoute, Router} from '@angular/router';
+import {AvisComponent} from '../avis/avis.component';
+import {Avis} from '../model/avis';
+import {AvisService} from '../services/avis.service';
+import { DemandeurService } from '../services/demandeur.service';
+import {forEachComment} from "tslint";
+import {Offre} from "../model/Offre";
+
 
 @Component({
   selector: 'app-artisan-profile',
@@ -14,12 +18,14 @@ import {AvisService} from "../services/avis.service";
 export class ArtisanProfileComponent implements OnInit {
   artisanID: string ;
   artisan: any;
+  avisTab: Array<Avis> = [];
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private ArtisanService: ArtisanService,
-    private router:Router,
-    private avisService: AvisService
+    private router: Router,
+    private avisService: AvisService,
+    private demandeurService: DemandeurService
   ) { }
   ngOnInit() {
     // var res = this.ArtisanService.returnCurrentArtisanId();
@@ -32,6 +38,17 @@ export class ArtisanProfileComponent implements OnInit {
       this.artisan = artisan.data();
       //     console.log(this.artisan);
 
+    });
+    this.avisService.getAvisById(this.artisanID).subscribe( (querySnapshot) => {
+      for ( const avis of querySnapshot.docs) {
+        const demandeurId = avis.get('demandeurId');
+        const demandeurName = avis.get('demandeurName');
+        const texte = avis.get('texte');
+        const a = new Avis(demandeurId, demandeurName, texte);
+        // console.log(o);
+        this.avisTab.push(a);
+      }
+      console.log(this.avisTab);
     });
 
   }
@@ -46,8 +63,14 @@ export class ArtisanProfileComponent implements OnInit {
   }
   donneravis(formulaire: NgForm) {
     const idDemandeur = localStorage.getItem('token');
-    const avis = new Avis(idDemandeur, formulaire.value);
-    this.avisService.ajouterAvis(avis, this.artisanID);
+    this.demandeurService.getDemandeurById(idDemandeur).subscribe((demandeur) => {
+      const d = demandeur.data();
+      const demandeurName = d.displayName;
+      console.log(formulaire.value.avis);
+      const avis = new Avis(idDemandeur, demandeurName, formulaire.value.avis);
+      this.avisService.ajouterAvis(avis, this.artisanID);
+    });
+
 
 
   }

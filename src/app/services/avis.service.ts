@@ -12,8 +12,13 @@ export class AvisService {
   ajouterAvis(avis: Avis, key: string) {
     return this.db.collection('Artisans').doc(key).collection('Avis').add({
       demandeurId : avis.demandeurId,
-      avis : avis.avis
+      demandeurName : avis.demandeurName,
+      texte : avis.texte
     });
+  }
+
+  getAvisById(idArtisan: string){
+    return this.db.collection('Artisans').doc(idArtisan).collection('Avis').get();
   }
 
 }
