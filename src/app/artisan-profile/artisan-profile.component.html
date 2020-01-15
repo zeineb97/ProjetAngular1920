@@ -72,7 +72,15 @@
             </div>
         </form>
     </div>
-
 </div>
+<div *ngIf="loggedAsdemandeur()">
+  <form #formulaire='ngForm'>
+    <label for="avis">Donner votre avis : </label>
+    <input id="avis" type="text"  ngModel name="avis"/>
+    <button type="submit" (click)="donneravis(formulaire)" class="btn btn-warning">Commenter</button>
+
+  </form>
+</div>
+
 
 

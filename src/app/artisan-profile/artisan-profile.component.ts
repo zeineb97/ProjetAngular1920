@@ -2,6 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import { ArtisanService } from '../services/artisan.service';
 import { NgForm } from '@angular/forms';
 import {ActivatedRoute, Router} from "@angular/router";
+import {AvisComponent} from "../avis/avis.component";
+import {Avis} from "../model/avis";
+import {AvisService} from "../services/avis.service";
 
 @Component({
   selector: 'app-artisan-profile',
@@ -9,13 +12,14 @@ import {ActivatedRoute, Router} from "@angular/router";
   styleUrls: ['./artisan-profile.component.css']
 })
 export class ArtisanProfileComponent implements OnInit {
-  artisanID: string = '';
+  artisanID: string ;
   artisan: any;
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private ArtisanService: ArtisanService,
-    private router:Router
+    private router:Router,
+    private avisService: AvisService
   ) { }
   ngOnInit() {
     // var res = this.ArtisanService.returnCurrentArtisanId();
@@ -36,6 +40,16 @@ export class ArtisanProfileComponent implements OnInit {
   }
   myProfil() {
     return (this.artisanID === localStorage.getItem('token'));
+  }
+  loggedAsdemandeur() {
+    return (localStorage.getItem('role') === 'demandeur');
+  }
+  donneravis(formulaire: NgForm) {
+    const idDemandeur = localStorage.getItem('token');
+    const avis = new Avis(idDemandeur, formulaire.value);
+    this.avisService.ajouterAvis(avis, this.artisanID);
+
+
   }
   /*
     completeArtisan(artisan, formulaire: NgForm) {
