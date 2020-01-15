@@ -18,15 +18,13 @@ export class OffreService {
     this.OffreRef = db.collectionGroup('Offre');
   }
 
-  createOffre(offre : Offre): Promise<any> {
-    if (this.artisanService.authenticated()) {
-      var Key = this.artisanService.returnCurrentArtisanId();
-    }
+  createOffre(offre: Offre){
+    const id = localStorage.getItem('token');
 
-    return this.db.collection('Artisans').doc(Key).collection('offres').add({
-      id : offre.id,
+    return this.db.collection('Artisans').doc(id).collection('offres').add({
+      artisanId : offre.artisanId,
       nom : offre.nom,
-      descripton : offre.descripton,
+      description : offre.description,
       imagePrincipal : offre.imagePrincipal,
       imagesList : offre.imagesList,
       prix : offre.prix

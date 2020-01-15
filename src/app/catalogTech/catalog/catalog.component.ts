@@ -15,13 +15,13 @@ export class CatalogComponent implements OnInit {
   ngOnInit() {
     this.offreSer.getAllOffres().subscribe( (querySnapshot) => {
       for ( const offre of querySnapshot.docs) {
-        const id = offre.get('id');
+        const artisanId = offre.get('artisanId');
         const nom = offre.get('nom');
         const description = offre.get('description');
         const imagePrincipal = offre.get('imagePrincipal');
         const imagesList = offre.get('imagesList');
         const prix = offre.get('prix');
-        const o = new Offre(id, nom, description, imagePrincipal, imagesList, prix);
+        const o = new Offre(artisanId, nom, description, imagePrincipal, imagesList, prix);
        // console.log(o);
         this.offres.push(o);
       }

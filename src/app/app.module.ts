@@ -27,6 +27,8 @@ import { DemandeurProfileComponent } from './demandeur-profile/demandeur-profile
 import { AddOffreComponent } from './add-offre/add-offre.component';
 import { AvisComponent } from './avis/avis.component';
 import { CompleteArtisanProfileComponent } from './complete-artisan-profile/complete-artisan-profile.component';
+import { LoginAsArtisanComponent } from './login-as-artisan/login-as-artisan.component';
+import { LoginAsDemandeurComponent } from './login-as-demandeur/login-as-demandeur.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,9 @@ import { CompleteArtisanProfileComponent } from './complete-artisan-profile/comp
     CompleteArtisanProfileComponent,
     DemandeurProfileComponent,
     AddOffreComponent,
-    AvisComponent
+    AvisComponent,
+    LoginAsArtisanComponent,
+    LoginAsDemandeurComponent
   ],
   imports: [
     BrowserModule,

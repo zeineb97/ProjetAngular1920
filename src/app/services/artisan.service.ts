@@ -98,17 +98,22 @@ export class ArtisanService {
       displayName: artisan.displayName,
       photoURL: artisan.photoURL
     };
-    //setItem 
+    //setItem
     localStorage.setItem(this.key, data.uid);
+    localStorage.setItem('role', 'artisan');
+    this.getArtisanById(data.uid).subscribe((user) => {
+      if (user.get('complete') === true) {
+        localStorage.setItem('complete', 'true');
+      }
+    });
     return userRef.set(data, { merge: true });
 
   }
 
 
-  public updateArtisan(artisan, artisanForm) {
-
+  public updateArtisan(artisan: any, artisanForm) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`Artisans/${artisan.uid}`);
-    artisan.complete = true;
+    localStorage.setItem('complete', 'true');
     const data: Artisan = {
       uid: artisan.uid,
       email: artisan.email,
@@ -118,12 +123,11 @@ export class ArtisanService {
       gouvernerat: artisanForm.gouvernerat,
       delegation: artisanForm.delegation,
       localite: artisanForm.localite,
-      complete: artisan.complete,
+      complete: true,
     };
 
     return userRef.set(data, { merge: true }).then(function () {
-      //setItem 
-      this.getArtisanById(artisan);
+      //setItem
       console.log("Document successfully written!");
 
     })
@@ -136,13 +140,15 @@ export class ArtisanService {
 
   signOut() {
     this.afAuth.auth.signOut().then(() => {
-      this.router.navigate(['/']);
       localStorage.removeItem(this.key);
+      localStorage.removeItem('role');
+      localStorage.removeItem('complete');
+      this.router.navigate(['']);
     });
   }
 
   authenticated(): boolean {
-    return this.afAuth.authState !== null;
+    return (localStorage.getItem(this.key) !== null);
   }
   /*
     getArtisanId() {
@@ -171,7 +177,6 @@ export class ArtisanService {
   }
   getArtisanById(id: string) {
     return this.afs.collection('Artisans').doc(id).get();
-
   }
 
 

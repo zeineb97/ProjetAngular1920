@@ -2,18 +2,32 @@
   <nav class="navbar navbar-dark" style="background-color: #2CB4CE;">
     <a class="navbar-brand" href="#">Dispo?</a>
     <div class="form-inline my-2 my-lg-0">
-      <a class="nav-link">
-        <span style="color: #EDC551; font-size: 18px;" (click)="goToDemandeur()">
-          <i class="fa fa-user-circle-o fa-lg" aria-hidden="true">
-          </i>
-        </span>
-      </a>
-      <a class="nav-link">
-        <span style="color: #EDC551; font-size: 18px;" (click)="goToArtisan()">
-          <i class="fa fa-wrench fa-lg" aria-hidden="true">
-          </i>
-        </span>
-      </a>
+      <ng-template [ngIf]="!authenticated()">
+        <a class="nav-link" >
+          <span style="color: #EDC551; font-size: 18px;"  (click)="goToDemandeur()">
+            <i class="fa fa-user-circle-o fa-lg" aria-hidden="true">
+            </i>
+          </span>
+        </a>
+      </ng-template>
+      <ng-template [ngIf]="!authenticated()">
+        <a class="nav-link" >
+          <span style="color: #EDC551; font-size: 18px;"  (click)="goToArtisan()">
+            <i class="fa fa-wrench fa-lg" aria-hidden="true">
+            </i>
+          </span>
+        </a>
+      </ng-template>
+      <ng-template [ngIf]="authenticated()" >
+        <a class="nav-link" >
+          <button (click)="logOut()">Logout</button>
+        </a>
+      </ng-template>
+      <ng-template [ngIf]="authenticated()" >
+        <a class="nav-link" >
+          <button (click)="myProfil()">mon profil</button>
+        </a>
+      </ng-template>
     </div>
 
   </nav>

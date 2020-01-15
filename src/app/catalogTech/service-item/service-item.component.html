@@ -6,7 +6,7 @@
       <h5 class="card-title">{{offre.nom}}</h5>
       <p class="card-text">{{offre.descripton}}</p>
       <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#Modal2"  ><i class="fa fa-plus-circle" aria-hidden="true"></i> Détails</button>&nbsp;&nbsp;
-      <button  class="btn btn-warning" routerLink=""><i class="fa fa-user-circle" aria-hidden="true"></i> Artisan</button>
+      <button  class="btn btn-warning" routerLinkActive="active" (click)="goToArtisan()"><i class="fa fa-user-circle" aria-hidden="true"></i> Artisan</button>
     </div>
   </div>
 
