@@ -22,6 +22,7 @@ interface Demandeur {
 export class DemandeurService {
 
   demandeur: Observable<Demandeur>;
+  public key = 'token';
 
   constructor(
     private afAuth: AngularFireAuth,
@@ -35,10 +36,10 @@ export class DemandeurService {
         if (demandeur) {
           return this.afs.doc<Demandeur>(`Demandeurs/${demandeur.uid}`).valueChanges()
         } else {
-          return of(null)
+          return of(null);
         }
       })
-    )
+    );
   }
 
   googleLogin() {
@@ -66,6 +67,8 @@ export class DemandeurService {
       photoURL: demandeur.photoURL
     }
 
+    localStorage.setItem(this.key, data.uid);
+    localStorage.setItem('role', 'demandeur');
     return userRef.set(data, { merge: true })
 
   }
@@ -75,5 +78,9 @@ export class DemandeurService {
     this.afAuth.auth.signOut().then(() => {
       this.router.navigate(['/']);
     });
+  }
+
+  getDemandeurById(id:string){
+    return this.afs.collection('Demandeurs').doc(id).get();
   }
 }

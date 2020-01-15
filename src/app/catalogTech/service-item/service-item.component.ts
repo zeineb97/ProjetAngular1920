@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Offre} from '../../model/Offre';
+import {Router} from "@angular/router";
 declare var myfunction: any;
 @Component({
   selector: 'app-service-item',
@@ -10,7 +11,7 @@ export class ServiceItemComponent implements OnInit {
   @Input() offre: Offre;
   @Output() selectedOffre = new EventEmitter();
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
@@ -19,6 +20,12 @@ export class ServiceItemComponent implements OnInit {
   }
   selectOffre()  {
      this.selectedOffre.emit(this.offre);
+  }
+
+  goToArtisan() {
+    const id = this.offre.artisanId;
+    console.log(this.offre);
+    this.router.navigate(['profilartisan', id]);
   }
 
 }

@@ -1,15 +1,22 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { DemandeurService } from '../services/demandeur.service';
 @Component({
   selector: 'app-demandeur-profile',
   templateUrl: './demandeur-profile.component.html',
   styleUrls: ['./demandeur-profile.component.css']
 })
-export class DemandeurProfileComponent {
+export class DemandeurProfileComponent implements OnInit{
 
-  constructor(public auth: DemandeurService) { }
+  demandeurId:string;
+  demandeur: any;
+  constructor(private demandeurService: DemandeurService) { }
 
-  ngOnInit() {
+  ngOnInit () {
+    this.demandeurId = localStorage.getItem('token');
+    this.demandeurService.getDemandeurById(this.demandeurId).subscribe((demandeur) => {
+      this.demandeur = demandeur.data();
+    });
+
   }
 
 }

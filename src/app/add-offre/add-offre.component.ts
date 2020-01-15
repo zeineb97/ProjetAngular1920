@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
+import {OffreService} from "../services/offre.service";
+import {Offre} from "../model/Offre";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-add-offre',
@@ -10,13 +13,17 @@ export class AddOffreComponent implements OnInit {
    imgSrc = 'assets/Images/default.png';
    selectedImage: any = null ;
    selectedImagesList: any = null ;
-  constructor() { }
+  constructor(private offreService: OffreService,private router : Router) { }
 
   ngOnInit() {
 
   }
-  addOffre(formulaire: NgForm){
-    console.log(formulaire);
+  addOffre(formulaire: NgForm) {
+    const artisanId = localStorage.getItem('token');
+    const offre =  new Offre(artisanId, formulaire.value.nom, formulaire.value.description,'img',['img1','img2'],formulaire.value.prix);
+    this.offreService.createOffre(offre).then(() => {
+      this.router.navigate(['']);
+    });
   }
   showPreview(event: any) {
       if (event.target.files && event.target.files[0]) {

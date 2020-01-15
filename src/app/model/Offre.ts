@@ -1,15 +1,15 @@
 export class Offre {
-  id?: number ;
+  artisanId?: string ;
   nom?: string ;
-  descripton?: string ;
+  description?: string ;
   imagePrincipal?: string ;
   imagesList?: string[] ;
   prix?: number ;
 
-  constructor(id = 0, nom = '', descripton = '', imagePrincipal = '', imagesList = [], prix = 0) {
-    this.id = id;
+  constructor(artisanId = '', nom = '', description = '', imagePrincipal = '', imagesList = [], prix = 0) {
+    this.artisanId = artisanId;
     this.nom = nom;
-    this.descripton = descripton;
+    this.description = description;
     this.imagePrincipal = imagePrincipal;
     this.imagesList = imagesList;
     this.prix = prix;
