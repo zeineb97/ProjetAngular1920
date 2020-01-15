@@ -9,6 +9,8 @@ import {Router} from '@angular/router';
 })
 export class LoginAsArtisanComponent implements OnInit {
 
+  c: string;
+  token: string;
   constructor(private auth: ArtisanService, private router: Router) { }
 
   ngOnInit() {
@@ -16,14 +18,28 @@ export class LoginAsArtisanComponent implements OnInit {
 
   login() {
     this.auth.googleLogin().then(() => {
-      if (localStorage.getItem('complete') === 'true') {
+      /*const id = localStorage.getItem('token');
+      this.router.navigate(['profilartisan', id]);*/
+      /*if (localStorage.getItem('complete') === 'true') {
         const token = localStorage.getItem('token');
         const link = ['profilartisan', token];
         this.router.navigate(link);
       } else {
         const link = ['cc'];
         this.router.navigate(link);
-      }
+      }*/
+
+    }).then(() =>{
+      setTimeout(()=> {
+        this.c = localStorage.getItem('complete');
+        this.token = localStorage.getItem('token');
+        console.log(this.c);
+        if (this.c === 'true'){
+          this.router.navigate(['profilartisan',this.token]);
+        }
+        else
+          this.router.navigate(['completeprofile']);
+      },1000);
     });
   }
 
