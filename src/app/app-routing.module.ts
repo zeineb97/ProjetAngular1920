@@ -15,6 +15,8 @@ import {AuthArtisanCompleteGuard} from "./auth-artisan-complete.guard";
 import {LoginAsArtisanComponent} from "./login-as-artisan/login-as-artisan.component";
 import {AuthArtisanNotCompleteGuard} from "./auth-artisan-not-complete.guard";
 import {LoginAsDemandeurComponent} from "./login-as-demandeur/login-as-demandeur.component";
+import {AuthDemandeurGuard} from "./auth-demandeur.guard";
+import {ConsultingGuard} from "./consulting.guard";
 const routes: Routes = [
   {
     path: '',
@@ -33,41 +35,26 @@ const routes: Routes = [
         component: LoginAsDemandeurComponent
       },
       {
-        path: 'cc',
+        path: 'completeprofile',
         component: CompleteArtisanProfileComponent,
-        canActivate : [AuthArtisanNotCompleteGuard]
+        canActivate : [AuthArtisanNotCompleteGuard],
       },
       {
         path: 'profilartisan/:id',
-        component: ArtisanProfileComponent
-        //canActivate: [AuthArtisanCompleteGuard]
+        component: ArtisanProfileComponent,
+        canActivate: [ConsultingGuard]
       },
       {
         path: 'profildemandeur',
-        component: DemandeurProfileComponent
+        component: DemandeurProfileComponent,
+        canActivate : [AuthDemandeurGuard]
       },
       {
         path: 'addoffre',
-        component: AddOffreComponent
+        component: AddOffreComponent,
+        canActivate: [AuthArtisanCompleteGuard]
       }
-
     ]
-  },
-  {
-    path: 'addartisan',
-    component: AddArtisanComponent
-  },
-  {
-    path: 'listartisan',
-    component: ListArtisanComponent
-  },
-  {
-    path: 'catalog',
-    component: CatalogComponent
-  },
-  {
-    path: 'profile',
-    component: UserProfileComponent
   },
 
 
