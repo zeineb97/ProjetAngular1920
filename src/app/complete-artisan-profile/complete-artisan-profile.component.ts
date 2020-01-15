@@ -19,6 +19,11 @@ export class CompleteArtisanProfileComponent implements OnInit {
 
 
   }
+  onClick() {
+    this.auth.signOut();
+
+
+  }
   /* currentArtisan() {
      var res = this.ArtisanService.returnCurrentArtisanId();
  
