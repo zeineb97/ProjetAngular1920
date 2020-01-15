@@ -2,3 +2,14 @@
   border: 2px solid #19647E;
 
 }
+.card{
+    position: relative;
+     margin: 0 auto; /* Added */
+        float: none; /* Added */
+        margin-bottom: 10px; /* Added */
+}
+
+p{
+    color: #19647E;
+    font-style: inherit;
+}
