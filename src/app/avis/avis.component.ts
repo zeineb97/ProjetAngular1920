@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {NgForm} from '@angular/forms';
+import {Avis} from "../model/avis";
+import {AvisService} from "../services/avis.service";
+
 
 @Component({
   selector: 'app-avis',
@@ -7,9 +11,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AvisComponent implements OnInit {
 
-  constructor() { }
+  @Input() idArtisan: string;
+  constructor(private avisService: AvisService) { }
 
   ngOnInit() {
   }
+
 
 }
