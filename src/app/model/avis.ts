@@ -1,7 +1,7 @@
 export class Avis {
-  demandeurId?: string ;
+  demandeurId?: string;
   demandeurName?: string;
-  texte?: string ;
+  texte?: string;
 
 
   constructor(artisanId = '', demandeurName = '', texte = '') {
