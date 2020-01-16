@@ -1,43 +1,44 @@
+<div class="row" style="margin-right: 0px;">
+    <div class="col-sm" style=" margin: 0px 0px;"></div>
+    <div class="col-sm" style="background-color: #fff; border-radius:5px ; border-color: #19647E ; margin: 1em; ">
+        <div class="card" style="width: 40rem;">
+            <div class="card-body">
+                <form #formulaire='ngForm'>
+                    <label>Nom et Prénom</label>
+                    <p>{{ artisan?.displayName }}</p>
+                    <img [src]="artisan?.photoURL" style="width: 200px;">
+                    <br>
+                    <label>Adresse Mail</label>
+                    <p>{{ artisan?.email }}</p>
+                    <label for="telNumber">Téléphone</label>
+                    <input id="telNumber" pattern="\d{22222222}" type="text" class="form-control" ngModel
+                        name="telNumber" required>
+                    <label>Gouvernerat</label>
+                    <select ngModel name="gouvernerat" class="form-control">
+                        <option value="T">Tunis</option>
+                        <option value="A">Ariana</option>
+                        <option value="B">Ben Arous</option>
+                    </select>
+                    <label>Délégation</label>
+                    <select ngModel name="delegation" class="form-control">
+                        <option value="T">Tunis</option>
+                        <option value="A">Ariana</option>
+                        <option value="B">Ben Arous</option>
+                    </select>
+                    <label>Localité</label>
+                    <select ngModel name="localite" class="form-control">
+                        <option value="T">Tunis</option>
+                        <option value="A">Ariana</option>
+                        <option value="B">Ben Arous</option>
+                    </select>
 
-    <div>
-            <div style="background-color: rgb(245, 241, 229);">
-                <div class="card" style="width: 40rem;">
-                    <div class="card-body">
-                        <form #formulaire='ngForm'>
-                            <label >Nom et Prénom</label>
-                            <p>{{ artisan?.displayName }}</p>
-                            <img [src]="artisan?.photoURL" style="width: 200px;">
-                            <br>
-                            <label >Adresse Mail</label>
-                            <p>{{ artisan?.email }}</p>
-                            <label for="telNumber">Téléphone</label>
-                            <input id="telNumber" pattern="\d{22222222}" type="text" class="form-control" ngModel
-                                name="telNumber" required>
-                            <label>Gouvernerat</label>
-                            <select ngModel name="gouvernerat" class="form-control">
-                                <option value="T">Tunis</option>
-                                <option value="A">Ariana</option>
-                                <option value="B">Ben Arous</option>
-                            </select>
-                            <label>Délégation</label>
-                            <select ngModel name="delegation" class="form-control">
-                                <option value="T">Tunis</option>
-                                <option value="A">Ariana</option>
-                                <option value="B">Ben Arous</option>
-                            </select>
-                            <label>Localité</label>
-                            <select ngModel name="localite" class="form-control">
-                                <option value="T">Tunis</option>
-                                <option value="A">Ariana</option>
-                                <option value="B">Ben Arous</option>
-                            </select>
-
-                            <br>
-                            <br>
-                            <button type="submit" routerLinkActive="active" (click)="completeArtisan(formulaire) "
-                                class="btn btn-warning">Completer mon profile</button>
-                        </form>
-                    </div>
-                </div>
+                    <br>
+                    <br>
+                    <button type="submit" routerLinkActive="active" (click)="completeArtisan(formulaire) "
+                        class="btn btn-warning">Completer mon profile</button>
+                </form>
             </div>
+        </div>
     </div>
+    <div class="col-sm" style=" margin: 0px 0px;"></div>
+</div>

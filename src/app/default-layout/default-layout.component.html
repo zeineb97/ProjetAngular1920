@@ -1,31 +1,31 @@
 <header>
-  <nav class="navbar navbar-dark" style="background-color: #2CB4CE;">
-    <a class="navbar-brand" href="#">Dispo?</a>
+  <nav class="navbar navbar-dark" style="background-color: #2CB4CE; ">
+    <a class="navbar-brand" href="#"><img src="../../assets/Images/Untitled-12.png" style="width: 60px;"></a>
     <div class="form-inline my-2 my-lg-0">
       <ng-template [ngIf]="!authenticated()">
-        <a class="nav-link" >
-          <span style="color: #EDC551; font-size: 18px;"  (click)="goToDemandeur()">
+        <a class="nav-link">
+          <span style="color: #fff; font-size: 25px;" (click)="goToDemandeur()">
             <i class="fa fa-user-circle-o fa-lg" aria-hidden="true">
             </i>
           </span>
         </a>
       </ng-template>
       <ng-template [ngIf]="!authenticated()">
-        <a class="nav-link" >
-          <span style="color: #EDC551; font-size: 18px;"  (click)="goToArtisan()">
+        <a class="nav-link">
+          <span style="color: #fff; font-size: 25px;" (click)="goToArtisan()">
             <i class="fa fa-wrench fa-lg" aria-hidden="true">
             </i>
           </span>
         </a>
       </ng-template>
-      <ng-template [ngIf]="authenticated()" >
-        <a class="nav-link" >
-          <button (click)="logOut()">Logout</button>
+      <ng-template [ngIf]="authenticated()">
+        <a class="nav-link">
+          <button class="btn btn-warning " (click)="logOut()">Se déconnecter </button>
         </a>
       </ng-template>
-      <ng-template [ngIf]="authenticated()" >
-        <a class="nav-link" >
-          <button (click)="myProfil()">mon profil</button>
+      <ng-template [ngIf]="authenticated()">
+        <a class="nav-link">
+          <button class="btn btn-warning " (click)="myProfil()">Mon profil</button>
         </a>
       </ng-template>
     </div>
@@ -38,67 +38,54 @@
   <div class="container-fluid text-center text-md-left">
     <div class="row">
       <div class="col-md-6 mt-md-0 mt-3">
-        <h5 class="text-uppercase font-weight-bold" style="color: #EDC551">A propos </h5>
-        <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; color: #EDC551">
-        <br>
-        <p style="color: #F2F2F2">
-          Une plateforme web sur laquelle les artisans qui offre des services de bricolage, de réparation et de
+        <h5 class="text-uppercase font-weight-bold" style="color: #EDC551; text-align: center;">A propos </h5>
+
+        <p style="color: #F2F2F2 ;text-align: justify;">
+          Une plateforme web sur laquelle les artisans qui offre des services de bricolage,
+          <br> de réparation et de
           réhabilitation connectent et offrent leurs services à tout demandeur.
         </p>
-
-
       </div>
       <hr class="clearfix w-100 d-md-none pb-3">
       <div class="col-md-6 mb-md-0 mb-3">
-        <h5 class="text-uppercase font-weight-bold" style="color: #EDC551">CONTACT</h5>
+        <h5 class="text-uppercase font-weight-bold" style="color: #EDC551; text-align: center;">CONTACT</h5>
         <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; color: #EDC551">
-        <br>
-        <ul class="list-unstyled" style="color: #F2F2F2">
-          <li>
+        <div class="row" style="color: #F2F2F2; text-align: center;">
+          <div class=" col-sm">
             <p>
               <i class="fa fa-home" aria-hidden="true"></i> Centre Urbain Nord, Tunisie</p>
-          </li>
-          <li>
+
+            <span style="font-size: 20px; ">
+              <i class="fa fa-facebook-square fa-lg" aria-hidden="true" style="color: #fff;"></i>
+            </span>
+          </div>
+          <div class="col-sm">
             <p>
               <i class="fa fa-envelope-o" aria-hidden="true"></i> info@example.com</p>
-          </li>
-          <li>
+            <span style=" font-size: 20px; ">
+              <i class="fa fa-instagram fa-lg" aria-hidden="true" style="color: #EDC551;"></i>
+            </span>
+          </div>
+          <div class="col-sm">
             <p>
               <i class="fa fa-phone" aria-hidden="true"></i> + 01 234 567 88</p>
-          </li>
+            <span style=" font-size: 20px; ">
+              <i class="fa fa-twitter-square fa-lg" aria-hidden="true" style="color: #fff;"></i>
+            </span>
+          </div>
 
-        </ul>
 
+        </div>
       </div>
     </div>
   </div>
-  <hr style="color: black">
+
   <div class=" row d-flex align-items-center">
     <div class="col-md-7 col-lg-8">
-      <p class="text-center text-md-left">
-        © 2020 Copyright
+      <p class="text-center text-md-left" style="color: #fff; text-align: center;">
+        <b>© 2020 Copyright</b>
       </p>
     </div>
 
-    <div class="col-md-5 col-lg-4 ">
-
-      <ul class="list-unstyled list-inline text-center">
-        <li class="list-inline-item">
-          <span style="font-size: 30px; ">
-            <i class="fa fa-facebook-square fa-lg" aria-hidden="true"></i>
-          </span>
-        </li>
-        <li class="list-inline-item">
-          <span style=" font-size: 30px; ">
-            <i class="fa fa-instagram fa-lg" aria-hidden="true"></i>
-          </span>
-        </li>
-        <li class="list-inline-item">
-          <span style=" font-size: 30px; ">
-            <i class="fa fa-twitter-square fa-lg" aria-hidden="true"></i>
-          </span>
-        </li>
-      </ul>
-    </div>
   </div>
 </footer>

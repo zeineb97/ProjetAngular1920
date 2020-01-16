@@ -1,8 +1,8 @@
-<br>
-
 <div class="body">
+  <!--
   <div class="row">
-    <div class="col-3"> <input [(ngModel)]="searchVal" class="form-control" type="search" placeholder="Recherche" aria-label="Search" ></div>
+    <div class="col-3"> <input [(ngModel)]="searchVal" class="form-control" type="search" placeholder="Recherche"
+        aria-label="Search"></div>
 
     <div class="col"></div>
 
@@ -15,7 +15,7 @@
       </select>
     </div>
     <div class="col-2 ">
-      <select  class="form-control">
+      <select class="form-control">
         <option selected disabled> Délégation</option>
         <option>A</option>
         <option>A</option>
@@ -23,7 +23,7 @@
       </select>
     </div>
     <div class="col-2 ">
-      <select  class="form-control">
+      <select class="form-control">
         <option selected disabled> Localité</option>
         <option>A</option>
         <option>A</option>
@@ -31,14 +31,13 @@
       </select>
     </div>
   </div>
-
+-->
   <br>
   <div class="row">
-         <div *ngFor="let o of offres | titleFilter:searchVal;" >
-           <app-service-item (selectedOffre)="selectOffre($event)"  [offre]="o"></app-service-item>
-         </div>
+    <div *ngFor="let o of offres | titleFilter:searchVal;">
+      <app-service-item (selectedOffre)="selectOffre($event)" [offre]="o"></app-service-item>
+    </div>
 
   </div>
 
 </div>
-
