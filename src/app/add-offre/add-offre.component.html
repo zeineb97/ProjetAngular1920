@@ -1,38 +1,42 @@
 <br>
 
-<div class="container" style="background-color: rgb(245, 241, 229);">
+<div class="container"
+  style="background-color: #fff;  border-radius:10px ; border-color: #2CB4CE ; border-style: ridge ; margin-bottom: 20px;">
 
-      <form #formulaire='ngForm'>
-        <label for="nom">Nom de l'offre : </label>
-        <input type="text" id="nom"  class="form-control" ngModel name="nom" required />
-
-
-        <br>
-        <label for="description">Description</label>
-        <input type="text" id="description"  class="form-control" ngModel name="description" required />
-        <br>
-        <label for="prix">Prix</label>
-        <input id="prix" pattern="\d{22222222}" type="text" class="form-control" ngModel name="prix" required />
-        <br>
-        Image Principale : <br><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i> <label for="imagePrincipale"></label>
-        <input type="file" accept="image/*" class="imagePrincipale" id="imagePrincipale" (change)="showPreview($event)" ngModel name="imagePrincipal" required/>
-        <br>
-        <img [src]="imgSrc" width="250px" height="250px">
-
-        <br>
-
-        Liste d'images : <br> <i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i><label for="imagesList"></label>
-        <input type="file" accept="image/*" class="imagesList" id="imagesList" multiple ngModel name="imagesList" (change)="detectImages($event)" />
-        <div *ngIf="selectedImagesList == null"> <img src='assets/Images/default.png' width="250px" height="250px"></div>
-        <br>
-
-        <button type="submit" class="btn btn-warning" style="margin-left: 900px" (click)="addOffre(formulaire)" routerLinkActive="active">Ajouter L'offre</button>
-       <br>
-        <br>
+  <form #formulaire='ngForm'>
+    <label for="nom">Nom de l'offre : </label>
+    <input type="text" id="nom" class="form-control" ngModel name="nom" required />
 
 
+    <br>
+    <label for="description">Description</label>
+    <input type="text" id="description" class="form-control" ngModel name="description" required />
+    <br>
+    <label for="prix">Prix</label>
+    <input id="prix" pattern="\d{22222222}" type="text" class="form-control" ngModel name="prix" required />
+    <br>
+    Image Principale : <br><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i> <label
+      for="imagePrincipale"></label>
+    <input type="file" accept="image/*" class="imagePrincipale" id="imagePrincipale" (change)="showPreview($event)"
+      ngModel name="imagePrincipal" required />
+    <br>
+    <img [src]="imgSrc" width="250px" height="250px">
 
-      </form>
+    <br>
+
+    Liste d'images : <br> <i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i><label for="imagesList"></label>
+    <input type="file" accept="image/*" class="imagesList" id="imagesList" multiple ngModel name="imagesList"
+      (change)="detectImages($event)" />
+    <div *ngIf="selectedImagesList == null"> <img src='assets/Images/default.png' width="250px" height="250px"></div>
+    <br>
+
+    <button type="submit" class="btn btn-warning" style="margin-left: 900px" (click)="addOffre(formulaire)"
+      routerLinkActive="active">Ajouter L'offre</button>
+    <br>
+    <br>
+
+
+
+  </form>
 
 </div>
-
