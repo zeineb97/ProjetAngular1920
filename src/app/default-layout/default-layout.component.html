@@ -1,6 +1,7 @@
 <header>
   <nav class="navbar navbar-dark" style="background-color: #2CB4CE; ">
-    <a class="navbar-brand" href="#"><img src="../../assets/Images/Untitled-12.png" style="width: 60px;"></a>
+    <a class="navbar-brand" routerLinkActive="active" [routerLink]="['/']"><img
+        src="../../assets/Images/Untitled-12.png" style="width: 70px;"></a>
     <div class="form-inline my-2 my-lg-0">
       <ng-template [ngIf]="!authenticated()">
         <a class="nav-link">
@@ -20,12 +21,12 @@
       </ng-template>
       <ng-template [ngIf]="authenticated()">
         <a class="nav-link">
-          <button class="btn btn-warning " (click)="logOut()">Se déconnecter </button>
+          <button class="btn btn-light " (click)="logOut()">Se déconnecter </button>
         </a>
       </ng-template>
       <ng-template [ngIf]="authenticated()">
         <a class="nav-link">
-          <button class="btn btn-warning " (click)="myProfil()">Mon profil</button>
+          <button class="btn btn-light " (click)="myProfil()">Mon profil</button>
         </a>
       </ng-template>
     </div>
