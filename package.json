@@ -27,7 +27,7 @@
     "class-transformer": "^0.2.3",
     "firebase": "^7.5.0",
     "font-awesome": "^4.7.0",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "ngx-loading": "^8.0.0",
     "rxjs": "~6.4.0",
     "rxjs-compat": "^6.5.3",
